@@ -11,7 +11,9 @@
 |
 */
 
-Route::get('/', function () {
+Route::get('/', 'WelcomeController@index');
+
+Route::get('/login', function () {
     // return view('layouts.app');
     return view('auth.login');
 });

@@ -5,16 +5,13 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">Das!!!hboard</div>
+                <div class="card-header">User Dashboard</div>
 
                 <div class="card-body">
-                    <!-- @if (session('status'))
-                        <div class="alert alert-success" role="alert">
-                            {{ session('status') }}
-                        </div>
-                    @endif -->
-
-                    You are logged in!
+                    
+                    <a href="/SearchQuery">Start Search</a>
+                    <br><br>
+                    <a href="/journalCRUD">Manage Journals</a>
                 </div>
             </div>
         </div>

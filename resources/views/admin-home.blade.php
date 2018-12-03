@@ -9,8 +9,11 @@
 
                 <div class="card-body">
                     
-
-                    You are logged in!
+                    <a href="/SearchQuery">Start Search</a>
+                    <br><br>
+                    <a href="/userCRUD">Manage Users</a>
+                    <br><br>
+                    <a href="/journalCRUD">Manage Journals</a>
                 </div>
             </div>
         </div>

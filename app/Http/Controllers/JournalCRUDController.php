@@ -18,7 +18,7 @@ class JournalCRUDController extends Controller
      */
     public function index(Request $request)
     {
-        $journals = Journals::orderBy('branch','asc')->paginate(10);
+        $journals = Journals::orderBy('id','asc')->paginate(10);
         return view('journalCRUD.index',compact('journals'));
     }
 

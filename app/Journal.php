@@ -28,6 +28,9 @@ class Journal extends Model
     protected $mapping = [
         //
         'properties' => [
+            'suggest' => [
+                'type' => 'completion',
+            ],
             'title' => [
                 'type' => 'text',
                 'fields' => [

@@ -2,12 +2,12 @@
 <!-- layouts.admin -->
  
 @section('content')
-<div class="wrapper wrapper-content">
+<div class="container">
     <div class="row">
         <div class="col-lg-12 margin-tb">
 
-        <div class="panel panel-default">
-             <div class="panel-heading" style="background-color: RGB(201, 59, 45); color: white; font-size: 20px;">User List
+        <div class="card">
+             <div class="card-header" style="background-color: RGB(201, 59, 45); color: white; font-size: 20px;">User List
                 <div class="pull-right">
                     <a class="btn" href="{{ route('userCRUD.create') }}" style="baackground-color: RGB(201, 59, 45); color: white"> Create User</a>
                 </div>
@@ -29,7 +29,7 @@
                     <th>Role</th>
                     <th>DOST-PCAARRD Branch</th>
                    <!--  <th>Password</th> -->
-                    <th width="280px">Action</th>
+                    <th width="150px">Action</th>
                 </tr>
             @foreach ($user as $key => $user)
             <tr>

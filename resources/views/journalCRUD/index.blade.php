@@ -29,7 +29,7 @@
                     <th>Abstract</th>
                     <th>DOST-PCAARRD Branch</th>
                    <!--  <th>Password</th> -->
-                    <th width="280px">Action</th>
+                    <th width="150px">Action</th>
                 </tr>
             @foreach ($journals as $journal)
             <tr>
