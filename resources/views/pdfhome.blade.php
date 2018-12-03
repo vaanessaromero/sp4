@@ -2,7 +2,7 @@
 <html>
 <head>
    <meta name="viewport" content="width=device-width">
-   <title>Cloudinary Image Upload</title>
+   <title>Cloudinary PDF Upload</title>
    <meta name="description" content="Prego is a project management app built for learning purposes">
    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
    <link rel="stylesheet" href="{{asset('css/style.css')}}">
@@ -12,7 +12,7 @@
 <div class="container" style="margin-top: 100px;">
    <div class="row">
        <h4 class="text-center">
-           Upload Images
+           Upload PDF
        </h4>
 
        <div class="row">
@@ -25,14 +25,14 @@
                        </div>
                    @endif
                    <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
-                       <input type="file" name="image_name" class="form-control" id="name" value="">
-                       @if($errors->has('image_name'))
-                           <span class="help-block">{{ $errors->first('image_name') }}</span>
+                       <input type="file" name="pdf_name" class="form-control" id="name" value="">
+                       @if($errors->has('pdf_name'))
+                           <span class="help-block">{{ $errors->first('pdf_name') }}</span>
                        @endif
                    </div>
 
                    <div class="form-group">
-                       <button type="submit" class="btn btn-success">Upload Image </button>
+                       <button type="submit" class="btn btn-success">Upload PDF </button>
                    </div>
                </form>
 

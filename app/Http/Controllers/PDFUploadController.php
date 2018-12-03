@@ -15,12 +15,12 @@ class PDFUploadController extends Controller
     public function uploadPDF(Request $request)
     {
        $this->validate($request,[
-           'image_name'=>'required|mimes:pdf|between:1, 6000',
+           'pdf_name'=>'required|mimes:pdf|between:1, 6000',
        ]);
 
-       $image_name = $request->file('image_name')->getRealPath();;
+       $pdf_name = $request->file('pdf_name')->getRealPath();;
 
-       Cloudder::upload($image_name, null);
+       Cloudder::upload($pdf_name, null);
 
        return redirect()->back()->with('status', 'PDF Uploaded Successfully');
 
