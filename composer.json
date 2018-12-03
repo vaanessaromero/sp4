@@ -9,6 +9,7 @@
         "appstract/laravel-bootstrap-components": "^1.0",
         "babenkoivan/scout-elasticsearch-driver": "^3.8",
         "fideloper/proxy": "^4.0",
+        "jrm2k6/cloudder": "0.4.*",
         "kreait/firebase-php": "^4.0",
         "laravel/framework": "5.6.*",
         "laravel/tinker": "^1.0",

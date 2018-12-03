@@ -63,3 +63,10 @@ Route::get('guest', function(){
 });
 
 Route::get('firebase','FirebaseController@index');
+
+Route::get('/pdfhome', 'PDFUploadController@home');
+
+Route::post('/upload/pdf', [
+  'uses'   =>  'PDFUploadController@uploadPDF',
+  'as'     =>  'uploadPDF'
+]);
