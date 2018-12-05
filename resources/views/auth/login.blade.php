@@ -9,8 +9,6 @@
             <div class="panel panel-default" align="center" style="width: 30%;padding-bottom: 20px;border-radius: 10px;background-color: #9c1a04;width:800px; margin:0 auto;">
                 <div class="container" style="">
                     <div class="panel-heading">
-                       <!--  <center> <img src="{{ asset('assets/img/logo.png')}}" style="width: 250px;">  -->
-                        <br>
                         <p style="font-family:serif; font-size: 40px; color: white;"><strong>Log In</strong></p>
                     </div>
                     <div class="panel-body">

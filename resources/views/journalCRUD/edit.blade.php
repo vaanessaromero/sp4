@@ -4,8 +4,8 @@
 @section('content')
 <div class="container">
 <div class="col-md-8 col-md-offset-2">
-    <div class="panel panel-default">
-        <div class="panel-heading" style="background-color: RGB(201, 59, 45); color: white; font-size: 20px;">Edit Journal Info</div>
+    <div class="panel panel-default" style="border-color: RGB(201, 59, 45); border-style: solid; border-width: 1px; padding-bottom: 10px; margin-top: 10px;">
+        <div class="panel-heading" style="background-color: RGB(201, 59, 45); color: white; font-size: 20px;padding-left:20px;">Edit Journal Info</div>
 
     @if (count($errors) > 0)
         <div class="alert alert-danger">
@@ -17,8 +17,8 @@
             </ul>
         </div>
     @endif
-
-    <div class="panel-body">
+    <br>
+    <div class="panel-body" style="padding-left: 20px;">
     {!! Form::model($journal, ['method' => 'PATCH','route' => ['journalCRUD.update', $journal->id]]) !!}
     <div class="row">
 

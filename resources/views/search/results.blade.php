@@ -31,18 +31,16 @@
                  <br>
                 <table class="table table-bordered">
                     <tr>
-                        <th>Journal ID</th>
                         <th>Title</th>
                         <th>Author/s</th>
                         <th>Date Published</th>
                         <th>Abstract</th>
-                        <th>DOST-PCAARRD Office</th>
+                        <th>Office</th>
                         <th>PDF File</th>
                     </tr>
                     @if(!empty($journals))
                         @foreach ($journals as $journal)
                             <tr>
-                                <td class= "color">{{ $journal->id }} </td>
                                 <td class= "color">{{ $journal->title }}</td>
                                 <td class= "color">{{ $journal->author }}</td>
                                 <td class= "color">{{ $journal->date }}</td>

@@ -28,7 +28,7 @@
                     <th>Last Name</th>
                     <th>Email</th>
                     <th>Role</th>
-                    <th>DOST-PCAARRD Branch</th>
+                    <th>Office</th>
                    <!--  <th>Password</th> -->
                     <th width="150px">Action</th>
                 </tr>

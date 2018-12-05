@@ -62,9 +62,7 @@ Route::get('guest', function(){
     return view('search.results');
 });
 
-Route::get('firebase','FirebaseController@index');
-
-Route::get('/pdfhome', 'PDFUploadController@home');
+Route::get('/journalCRUD.create', 'PDFUploadController@index');
 
 Route::post('/upload/pdf', [
   'uses'   =>  'PDFUploadController@uploadPDF',

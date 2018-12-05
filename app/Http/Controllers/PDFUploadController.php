@@ -11,7 +11,7 @@ class PDFUploadController extends Controller
 	public function home()
    	{
        $pdfs = Upload::all();
-       return view('pdfhome', compact('pdfs'));
+       return view('journalCRUD.create', compact('pdfs'));
    	}
     //
     public function uploadPDF(Request $request)
@@ -38,7 +38,7 @@ class PDFUploadController extends Controller
 
        $this->savePDFs($request, $pdf_url);
 
-       return redirect()->back()->with('status', 'PDF Uploaded Successfully');
+       return redirect()->back()->with('pdf_url', $pdf_url);
     }
 
     public function savePDFs(Request $request, $pdf_url)
@@ -48,9 +48,5 @@ class PDFUploadController extends Controller
        $pdf->pdf_url = $pdf_url;
 
        $pdf->save();
-   	}
-
-   	public function get_PDF_URL(){
-   		return $this->pdf_url;
    	}
 }
