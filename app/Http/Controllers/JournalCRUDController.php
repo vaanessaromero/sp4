@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Journals;
 use Illuminate\Pagination\Paginator;
-
+use Auth;
 
 class JournalCRUDController extends Controller
 {
@@ -19,7 +19,8 @@ class JournalCRUDController extends Controller
     public function index(Request $request)
     {
         $journals = Journals::orderBy('id','asc')->paginate(10);
-        return view('journalCRUD.index',compact('journals'));
+        $user = Auth::user();
+        return view('journalCRUD.index',compact('journals','user'));
     }
 
     /**
@@ -47,11 +48,10 @@ class JournalCRUDController extends Controller
         	'title' => 'required|max:255',
             'author' => 'required|max:255',
             'date' => 'required',
-            'abstract' => 'max:500',
-            'branch' => 'required',
+            'abstract' => 'max:1000',
+            'office' => 'required',
+            'pdf_url' => 'required',
         ]);
-
-        
 
         Journals::create($request->all());
         return redirect()->route('journalCRUD.index')
@@ -96,10 +96,10 @@ class JournalCRUDController extends Controller
             'author' => 'required|max:255',
             'date' => 'required',
             'abstract' => 'max:500',
-            'branch' => 'required',
+            'office' => 'required',
         ]);
 
-        Journals::find($id)->update($request->all());
+        Journals::find($id)->save($request->all());
         return redirect()->route('journalCRUD.index')
                         ->with('success','Journal updated successfully');
     }

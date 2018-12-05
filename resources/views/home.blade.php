@@ -1,19 +1,14 @@
-@extends('layouts.app')
-
+@extends('layouts.approver')
 @section('content')
 <div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">User Dashboard</div>
-
-                <div class="card-body">
-                    
-                    <a href="/SearchQuery">Start Search</a>
-                    <br><br>
-                    <a href="/journalCRUD">Manage Journals</a>
-                </div>
-            </div>
+    <div class="container" style="margin-top: 80px; margin-left: 120px;">
+        <div class="floated_img" style="float: left; padding-right: 100px; padding-top: 50px">
+            <a href="/journalCRUD"><img style="width: 300px;" src="{{ asset('assets/img/manage_journals_logo.png') }}"></a>
+            <center><p style="font-size: 20px; color: black"><strong>MANAGE JOURNALS</strong></p></center>
+        </div>
+        <div class="floated_img" style="float: left; padding-right: 100px; padding-top: 50px">
+            <a href="/SearchQuery"><img style="width: 300px;" src="{{ asset('assets/img/search_logo.png') }}"></a>
+            <center><p style="font-size: 20px; color: black"><strong>START SEARCH</strong></p></center>
         </div>
     </div>
 </div>

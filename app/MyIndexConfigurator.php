@@ -12,7 +12,18 @@ class MyIndexConfigurator extends IndexConfigurator
     /**
      * @var array
      */
+    protected $name = 'my_index';
+
+
+
     protected $settings = [
         //
+        'analysis' => [
+            'analyzer' => [
+                'es_std' => [
+                    'type' => 'standard',
+                ]
+            ]    
+        ]
     ];
 }

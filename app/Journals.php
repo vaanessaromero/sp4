@@ -7,5 +7,5 @@ use Illuminate\Database\Eloquent\Model;
 class Journals extends Model
 {
     //
-    public $fillable = ['title', 'author', 'date','abstract', 'branch'];
+    public $fillable = ['title', 'author', 'date','abstract', 'office', 'pdf_url'];
 }

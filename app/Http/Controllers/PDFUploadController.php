@@ -4,12 +4,14 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use JD\Cloudder\Facades\Cloudder;
+use App\Upload;
 
 class PDFUploadController extends Controller
 {
 	public function home()
    	{
-       return view('pdfhome');
+       $pdfs = Upload::all();
+       return view('pdfhome', compact('pdfs'));
    	}
     //
     public function uploadPDF(Request $request)
@@ -18,11 +20,37 @@ class PDFUploadController extends Controller
            'pdf_name'=>'required|mimes:pdf|between:1, 6000',
        ]);
 
+
+       $pdf = $request->file('pdf_name');
+
+       $name = $request->file('pdf_name')->getClientOriginalName();
+
        $pdf_name = $request->file('pdf_name')->getRealPath();;
 
        Cloudder::upload($pdf_name, null);
 
-       return redirect()->back()->with('status', 'PDF Uploaded Successfully');
+       list($width, $height) = getimagesize($pdf_name);
 
+       $pdf_url= Cloudder::show(Cloudder::getPublicId(), ["width" => $width, "height"=>$height]);
+
+       //save to uploads directory
+       $pdf->move(public_path("uploads"), $name);
+
+       $this->savePDFs($request, $pdf_url);
+
+       return redirect()->back()->with('status', 'PDF Uploaded Successfully');
     }
+
+    public function savePDFs(Request $request, $pdf_url)
+   	{
+       $pdf = new Upload();
+       $pdf->pdf_name = $request->file('pdf_name')->getClientOriginalName();
+       $pdf->pdf_url = $pdf_url;
+
+       $pdf->save();
+   	}
+
+   	public function get_PDF_URL(){
+   		return $this->pdf_url;
+   	}
 }

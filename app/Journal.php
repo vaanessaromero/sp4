@@ -12,7 +12,7 @@ class Journal extends Model
     /**
      * @var string
      */
-    protected $indexConfigurator = MyIndexConfigurator::class;
+    protected $indexConfigurator = JournalsIndexConfigurator::class;
 
     /**
      * @var array
@@ -25,17 +25,24 @@ class Journal extends Model
     /**
      * @var array
      */
+    // protected $type = 'my_journal';
+    
     protected $mapping = [
         //
         'properties' => [
-            'suggest' => [
-                'type' => 'completion',
+            'id' => [
+                'type' => 'integer',
+                'fields' => [
+                    'raw' => [
+                        'type' => 'integer',
+                    ]
+                ]
             ],
             'title' => [
                 'type' => 'text',
                 'fields' => [
                     'raw' => [
-                        'type' => 'text',
+                        'type' => 'keyword'
                     ]
                 ]
             ],
@@ -43,7 +50,7 @@ class Journal extends Model
                 'type' => 'text',
                 'fields' => [
                     'raw' => [
-                        'type' => 'text',
+                        'type' => 'keyword'
                     ]
                 ]
             ],
@@ -51,7 +58,7 @@ class Journal extends Model
                 'type' => 'text',
                 'fields' => [
                     'raw' => [
-                        'type' => 'date',
+                        'type' => 'date'
                     ]
                 ]
             ],
@@ -59,18 +66,32 @@ class Journal extends Model
                 'type' => 'text',
                 'fields' => [
                     'raw' => [
-                        'type' => 'text',
+                        'type' => 'keyword'
                     ]
                 ]
             ],
-            'branch' => [
+            'office' => [
                 'type' => 'text',
                 'fields' => [
                     'raw' => [
-                        'type' => 'text',
+                        'type' => 'keyword'
+                    ]
+                ]
+            ],
+            'pdf_url' => [
+                'type' => 'text',
+                'fields' => [
+                    'raw' => [
+                        'type' => 'keyword'
                     ]
                 ]
             ],
         ]
     ];
+
+    public function upload()
+    {
+        return $this->hasOne('App\Upload');
+    }
 }
+

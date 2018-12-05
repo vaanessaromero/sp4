@@ -19,7 +19,7 @@ Route::get('/login', function () {
 });
 
 Route::get('/search', function (Request $request) {
-    return App\Journal::search('alice')->count();
+    return App\Journal::search('*')->get();
 });
 
 Route::get('/SearchQuery', 'SearchController@search')->name('searchpage');

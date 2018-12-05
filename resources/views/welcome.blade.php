@@ -1,11 +1,11 @@
 <!doctype html>
-<html lang="{{ app()->getLocale() }}">
+<html lang="{{ config('app.locale') }}">
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Laravel</title>
+        <title>Welcome!</title>
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
@@ -46,7 +46,7 @@
             }
 
             .title {
-                font-size: 84px;
+                font-size: 60px;
             }
 
             .links > a {
@@ -70,10 +70,11 @@
                 <div class="top-right links">
                     @auth
                         @if ($user->access_level == 0){
-                            <a href="{{ url('/admin/home') }}">Admin Home</a>
+                            <a href="{{ url('/admin/home') }}">DASHBOARD</a>
                         }
                         @else{
-                            <a href="{{ url('/home') }}">Member Home</a>
+                            <a href="{{ url('/home') }}">DASHBOARD</a>
+                        }
                         @endif
                     @else
                         <a href="{{ route('login') }}">Login</a>
@@ -83,21 +84,22 @@
             @endif
 
             <div class="content">
+                <div><img style="width: 400px;" src= "{{ asset('assets/img/search_logo.png') }}" /></div>
                 <div class="title m-b-md">
-                    Welcome
+                    <p style="font-size: 30px; color: black"><strong>SEARCH THE JOURNALS LIBRARY</strong></p>
                 </div>
-
-                <div class="links">
-                    @if (Route::has('login'))
+                <div>
+                @if (Route::has('login'))
                         @auth
-                            lol
                         @else
                             <a href="guest">Enter as guest</a>
                         @endauth
                     @endif
-                    <!-- <a href="guest">Enter as guest</a> -->
-                    <!-- <a href="https://github.com/laravel/laravel">GitHub</a> -->
                 </div>
+                <!--
+                <div class="links">
+                    <strong>Network Authentication Request Form</strong>
+                </div> -->
             </div>
         </div>
     </body>

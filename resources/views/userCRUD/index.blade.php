@@ -1,8 +1,9 @@
-@extends('layouts.app')
+@extends('layouts.admin')
 <!-- layouts.admin -->
  
 @section('content')
-<div class="container">
+
+<div class="wrapper wrapper-content">
     <div class="row">
         <div class="col-lg-12 margin-tb">
 

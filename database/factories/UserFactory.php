@@ -32,6 +32,7 @@ $factory->define(App\Journal::class, function (Faker $faker) {
         'author' => $faker->realText(100),
         'date' => $faker->date(),
         'abstract' => $faker->realText(500),
-        'branch' => $faker->realText(100),
+        'office' => $faker->realText(100),
+        'pdf_url' => $faker->realText(50),
     ];
 });

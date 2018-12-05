@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.admin')
 <!-- layouts.admin') -->
  
 @section('content')

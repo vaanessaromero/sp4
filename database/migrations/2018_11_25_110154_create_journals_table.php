@@ -19,7 +19,8 @@ class CreateJournalsTable extends Migration
             $table->text('author');
             $table->integer('date');
             $table->text('abstract');
-            $table->text('branch');
+            $table->text('office');
+            $table->text('pdf_url');
             $table->timestamps();
         });
     }

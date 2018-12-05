@@ -1,8 +1,23 @@
 @extends('layouts.app')
+
 <!-- layouts.admin -->
  
 @section('content')
+
 <div class="container">
+    <div class="col-md-8 col-md-offset-2">
+        <div class="col-lg-12 margin-tb">
+            @auth
+                @if ($user->access_level == 0)
+                    <a class="btn btn-danger" href="{{ url('/admin/home') }}">Back</a>
+                
+                @else
+                    <a class="btn btn-danger" href="{{ url('/home') }}">Back</a>
+                @endif
+            @endauth
+        </div>
+    </div>
+    <br>
     <div class="row">
         <div class="col-lg-12 margin-tb">
 
@@ -27,7 +42,8 @@
                     <th>Author/s</th>
                     <th>Date Published</th>
                     <th>Abstract</th>
-                    <th>DOST-PCAARRD Branch</th>
+                    <th>DOST-PCAARRD Office</th>
+                    <th>PDF File</th>
                    <!--  <th>Password</th> -->
                     <th width="150px">Action</th>
                 </tr>
@@ -38,7 +54,8 @@
                 <td class= "color">{{ $journal->author }}</td>
                 <td class= "color">{{ $journal->date }}</td>
                 <td class= "color">{{ $journal->abstract }}</td>
-                <td class= "color">{{ $journal->branch }}</td>
+                <td class= "color">{{ $journal->office }}</td>
+                <td><a class="btn btn-primary" target="_blank" rel="noopener noreferrer" href="{{ $journal->pdf_url }}">FILE</a></td>
                 </td>
                 <td>
                     <a class="btn btn-primary" href="{{ route('journalCRUD.edit',$journal->id) }}">Edit</a>

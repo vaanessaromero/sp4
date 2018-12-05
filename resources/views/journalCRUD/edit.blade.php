@@ -2,7 +2,7 @@
 <!-- layouts.admin') -->
  
 @section('content')
-<div class="wrapper wrapper-content">
+<div class="container">
 <div class="col-md-8 col-md-offset-2">
     <div class="panel panel-default">
         <div class="panel-heading" style="background-color: RGB(201, 59, 45); color: white; font-size: 20px;">Edit Journal Info</div>
@@ -53,11 +53,12 @@
 
         <div class="col-md-9">
             <div class="form-group">
-                <strong>DOST-PCAARRD Branch:</strong>
-                {!! Form::text('branch', null, array('placeholder' => 'DOST-PCAARRD Branch','class' => 'form-control')) !!}
+                <strong>DOST-PCAARRD Office:</strong>
+                {!! Form::text('office', null, array('placeholder' => 'DOST-PCAARRD Office','class' => 'form-control')) !!}
             </div>
         </div>
 
+        
         <div class="col-xs-12 col-sm-12 col-md-12 text-center">
                 <a class="btn btn-primary" href="{{ route('journalCRUD.index') }}"> Back</a>
                 <button type="submit" class="btn btn-danger">Submit</button>

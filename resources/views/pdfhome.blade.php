@@ -39,6 +39,19 @@
            </div>
        </div>
    </div>
+
+   <div class="row" id="displayImages">
+       @if($pdfs)
+           @foreach($pdfs as $pdf)
+
+               <div class="col-md-3">
+                   <a href="{{$pdf->pdf_url}}" target="_blank">
+                       <img src="{{asset('uploads/'.$pdf->pdf_name)}}" class="img-responsive" alt="{{$pdf->pdf_name}}">
+                   </a>
+               </div>
+           @endforeach
+       @endif
+   </div>
 </div>
 </body>
 </html>

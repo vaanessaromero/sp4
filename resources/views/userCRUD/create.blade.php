@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.admin')
 <!-- layouts.admin -->
 
 @section('content')
@@ -60,7 +60,7 @@
                 <div class="col-md-9">
                     <div class="form-group">
                         <strong>DOST-PCAARRD Branch:</strong>
-                        {!! Form::text('branch', null, array('placeholder' => 'DOST-PCAARRD Branch','class' => 'form-control')) !!}
+                        {!! Form::text('branch', null, array('placeholder' => 'DOST-PCAARRD Office','class' => 'form-control')) !!}
                     </div>
                 </div>
 
