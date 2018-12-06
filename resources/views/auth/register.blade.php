@@ -8,7 +8,7 @@
             <div class="panel panel-default" align="center" style="width: 30%;padding-bottom: 5px;border-radius: 10px;background-color: #9c1a04;width:800px; margin:0 auto;">
                 <div class="panel-heading">
                     <br>
-                    <p style="font-family:serif; font-size: 40px; color: white;"><strong>Create An Account</strong></p>
+                    <p style="font-family: 'Raleway', sans-serif; font-size: 40px; color: white;"><strong>Create An Account</strong></p>
                 </div>
                 <div class="panel-body">
                     <form class="form-horizontal" role="form" method="POST" action="{{ route('register') }}">
@@ -78,11 +78,25 @@
                             </div>
                         </div>
 
-                        <div class="form-group{{ $errors->has('branch') ? ' has-error' : '' }}">
-                            <label for="branch" class="col-md-4 control-label" style="color: #fce7d2">Office</label>
+                        <!-- <div class="form-group{{ $errors->has('access_level') ? ' has-error' : '' }}">
+                            <label for="access_level" class="col-md-4 control-label" style="color: #fce7d2">Access Level</label>
 
                             <div class="col-md-6">
-                                <input id="branch" type="text" class="form-control" name="branch" value="{{ old('branch') }}" required autofocus>
+                                {!! Form::select('access_level', array('1' => 'User','0' => 'Admin')) !!}
+
+                                @if ($errors->has('access_level'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('access_level') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div> -->
+
+                        <div class="form-group{{ $errors->has('branch') ? ' has-error' : '' }}">
+                            <label for="branch" class="col-md-4 control-label" style="color: #fce7d2">Regional Office</label>
+
+                            <div class="col-md-6">
+                                {!! Form::select('branch', array('National Capital Region' => 'National Capital Region','Region I' => 'Region I', 'Region II' => 'Region II', 'Region III' => 'Region III', 'Region IV' => 'Region IV', 'Region V' => 'Region V', 'Region VI' => 'Region VI', 'Region VII' => 'Region VII', 'Region VIII' => 'Region VIII', 'Region IX' => 'Region IX', 'Region X' => 'Region X', 'Region XI' => 'Region XI', 'Region XII' => 'Region XII', 'Region XIII' => 'Region XIII', 'Region XIV' => 'Region XIV')) !!}
 
                                 @if ($errors->has('branch'))
                                     <span class="help-block">
@@ -104,7 +118,7 @@
             </div>
             <br>
             <div class="container" align="center" style="width:800px; margin:0 auto;">
-                <a class="btn" style="background-color:RGB(164, 16, 19); color: white;" href="{{ url('/SearchQuery') }}">Enter as GUEST</a>
+                <a class="btn" style="background-color:RGB(164, 16, 19); color: white;" href="{{ url('/search') }}">Enter as GUEST</a>
                 <a class="btn" style="background-color:RGB(164, 16, 19); color: white;" href="{{ url('/') }}">Go BACK</a>
             </div>
         </div>

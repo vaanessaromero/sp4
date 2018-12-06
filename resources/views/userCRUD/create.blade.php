@@ -59,8 +59,8 @@
 
                 <div class="col-md-9">
                     <div class="form-group">
-                        <strong>DOST-PCAARRD Branch:</strong>
-                        {!! Form::text('branch', null, array('placeholder' => 'DOST-PCAARRD Office','class' => 'form-control')) !!}
+                        <strong>Regional Office</strong>
+                        {!! Form::select('branch', array('National Capital Region' => 'National Capital Region','Region I' => 'Region I', 'Region II' => 'Region II', 'Region III' => 'Region III', 'Region IV' => 'Region IV', 'Region V' => 'Region V', 'Region VI' => 'Region VI', 'Region VII' => 'Region VII', 'Region VIII' => 'Region VIII', 'Region IX' => 'Region IX', 'Region X' => 'Region X', 'Region XI' => 'Region XI', 'Region XII' => 'Region XII', 'Region XIII' => 'Region XIII', 'Region XIV' => 'Region XIV')) !!}
                     </div>
                 </div>
 

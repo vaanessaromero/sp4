@@ -216,7 +216,8 @@ return [
         'View' => Illuminate\Support\Facades\View::class,
         'Form' => 'Collective\Html\FormFacade',
         'Html' => 'Collective\Html\HtmlFacade',
-        'Cloudder' => 'JD\Cloudder\Facades\Cloudder'
+        'Cloudder' => 'JD\Cloudder\Facades\Cloudder',
+        'Input' => Illuminate\Support\Facades\Input::class,
     ],
 
 ];

@@ -6,10 +6,10 @@
         <div class="col-md-8 col-md-offset-2">
 
 
-            <div class="panel panel-default" align="center" style="width: 30%;padding-bottom: 20px;border-radius: 10px;background-color: #9c1a04;width:800px; margin:0 auto;">
+            <div class="panel panel-default" align="center" style="width: 30%;padding-top:30px;padding-bottom: 20px;border-radius: 10px;background-color: #9c1a04;width:800px; margin:0 auto;">
                 <div class="container" style="">
                     <div class="panel-heading">
-                        <p style="font-family:serif; font-size: 40px; color: white;"><strong>Log In</strong></p>
+                        <p style="font-family: 'Raleway', sans-serif; font-size: 40px; color: white;"><strong>Log In</strong></p>
                     </div>
                     <div class="panel-body">
                         <form class="form-horizontal" role="form" method="POST" action="{{ route('login.custom') }}">
@@ -68,7 +68,7 @@
             </div>
             <br>
             <div class="container" align="center" style="width:800px; margin:0 auto;">
-                <a class="btn" style="background-color:RGB(164, 16, 19); color: white;" href="{{ url('/SearchQuery') }}">Enter as GUEST</a>
+                <a class="btn" style="background-color:RGB(164, 16, 19); color: white;" href="{{ url('/search') }}">Enter as GUEST</a>
                 <a class="btn" style="background-color:RGB(164, 16, 19); color: white;" href="{{ url('/') }}">Go BACK</a>
             </div>
         </div>

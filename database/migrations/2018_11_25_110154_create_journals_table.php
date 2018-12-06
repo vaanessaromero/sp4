@@ -20,6 +20,7 @@ class CreateJournalsTable extends Migration
             $table->integer('date');
             $table->text('abstract');
             $table->text('office');
+            $table->string('subject_field');
             $table->text('pdf_url');
             $table->timestamps();
         });

@@ -1,11 +1,11 @@
 <!doctype html>
-<html lang="{{ config('app.locale') }}">
+<html lang="{{ app()->getLocale() }}">
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Welcome!</title>
+        <title>Home | Journals Library</title>
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
@@ -84,7 +84,7 @@
             @endif
 
             <div class="content">
-                <div><img style="width: 400px;" src= "{{ asset('assets/img/search_logo.png') }}" /></div>
+                <div><img style="width: 250px;" src= "{{ asset('assets/img/search_logo.png') }}" /></div>
                 <div class="title m-b-md">
                     <p style="font-size: 30px; color: black"><strong>SEARCH THE JOURNALS LIBRARY</strong></p>
                 </div>
@@ -92,7 +92,9 @@
                 @if (Route::has('login'))
                         @auth
                         @else
-                            <a href="guest">Enter as guest</a>
+                            <div class="links">
+                                <a href="{{ url('/search') }}">Enter as guest</a>
+                            </div>
                         @endauth
                     @endif
                 </div>

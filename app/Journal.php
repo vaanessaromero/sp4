@@ -78,6 +78,14 @@ class Journal extends Model
                     ]
                 ]
             ],
+            'subject_field' => [
+                'type' => 'text',
+                'fields' => [
+                    'raw' => [
+                        'type' => 'keyword'
+                    ]
+                ]
+            ],
             'pdf_url' => [
                 'type' => 'text',
                 'fields' => [

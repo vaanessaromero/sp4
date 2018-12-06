@@ -33,7 +33,7 @@
 							<a href="{{ url('journalCRUD') }}"><i class="fa fa fa-list-alt"></i> <span class="nav-label">Manage Journals</span></a>
 						 </li>
 						 <li class="">
-							<a href="{{ url('SearchQuery') }}"><i class="fa fa fa-list-alt"></i> <span class="nav-label">Search</span></a>
+							<a href="{{ url('search') }}"><i class="fa fa fa-list-alt"></i> <span class="nav-label">Search</span></a>
 						 </li>
 		
 						 <li class="">

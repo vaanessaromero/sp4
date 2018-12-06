@@ -19,6 +19,8 @@ class AppServiceProvider extends ServiceProvider
         Schema::defaultStringLength(191);
         Paginator::defaultView('pagination::view');
         Paginator::defaultSimpleView('pagination::view');
+
+        $main_array = array();
     }
 
     /**

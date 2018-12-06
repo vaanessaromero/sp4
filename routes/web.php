@@ -18,11 +18,25 @@ Route::get('/login', function () {
     return view('auth.login');
 });
 
-Route::get('/search', function (Request $request) {
-    return App\Journal::search('*')->get();
+Route::get('/lol', function (Request $request) {
+    return App\Journal::search('*')->whereRegexp('subject_field.raw', ', Aquaculture, Agricultural Business, Agricultural Economics, Agricultural Equipment, Agricultural Management, Agronomy, Animal Husbandry, Crop Production, Food Science, Forestry, Horticulture, Soil Science, Veterinary Science')->get();
 });
+// Route::get('search', ['as' => 'search', 'uses' => 'SearchController@search']);
 
-Route::get('/SearchQuery', 'SearchController@search')->name('searchpage');
+// Route::get('/search', 'SearchController@index');
+// Route::get('/search/{selected_region}', 'SearchController@show');
+// Route::get('/search/all/{selected_fields}', 'SearchController@show');
+// Route::get('/search/{selected_region}/{selected_fields}', 'SearchController@show');
+// Route::post('/search', 'SearchController@processForm');
+
+Route::get('search/', 'SearchController@index')->name('searchRegionForm');
+Route::post('search/', 'SearchController@processForm')->name('processRegion');
+
+Route::get('/SearchQuery', 'SearchController@search');
+
+// Route::get('/searchIndex','SearchController@index');
+
+
 
 // Route::prefix('admin')->group(function() {
 //     Route::get('/login', 'Auth\AdminLoginController@showLoginForm')->name('admin.login');
@@ -68,3 +82,5 @@ Route::post('/upload/pdf', [
   'uses'   =>  'PDFUploadController@uploadPDF',
   'as'     =>  'uploadPDF'
 ]);
+
+// Route::post('/admin/register', 'Auth\RegisterController@create');

@@ -42,25 +42,48 @@
                     <th>Date Published</th>
                     <th>Abstract</th>
                     <th>Office</th>
+                    <th>Subject Field/s</th>
                     <th>Download File</th>
                    <!--  <th>Password</th> -->
                     <th width="150px">Action</th>
                 </tr>
+            
             @foreach ($journals as $journal)
             <tr>
-                <td class= "color">{{ $journal->title }}</td>
-                <td class= "color">{{ $journal->author }}</td>
-                <td class= "color">{{ $journal->date }}</td>
-                <td class= "color">{{ $journal->abstract }}</td>
-                <td class= "color">{{ $journal->office }}</td>
-                <td><a class="btn btn-primary" target="_blank" rel="noopener noreferrer" href="{{ $journal->pdf_url }}">FILE</a></td>
-                </td>
-                <td>
-                    <a class="btn btn-primary" href="{{ route('journalCRUD.edit',$journal->id) }}">Edit</a>
-                    {!! Form::open(['method' => 'DELETE','route' => ['journalCRUD.destroy', $journal->id],'style'=>'display:inline']) !!}
-                    {!! Form::submit('Delete', ['class' => 'btn btn-danger']) !!}
-                    {!! Form::close() !!}
-                </td>
+                @auth
+                    @if ($user->access_level == 0) 
+                        <td class= "color">{{ $journal->title }}</td>
+                        <td class= "color">{{ $journal->author }}</td>
+                        <td class= "color">{{ $journal->date }}</td>
+                        <td class= "color">{{ $journal->abstract }}</td>
+                        <td class= "color">{{ $journal->office }}</td>
+                        <td class= "color">{{ $journal->subject_field }}</td>
+                        <td><a class="btn btn-primary" target="_blank" rel="noopener noreferrer" href="{{ $journal->pdf_url }}">FILE</a></td>
+                        </td>
+                        <td>
+                            <a class="btn btn-primary" href="{{ route('journalCRUD.edit',$journal->id) }}">Edit</a>
+                            {!! Form::open(['method' => 'DELETE','route' => ['journalCRUD.destroy', $journal->id],'style'=>'display:inline']) !!}
+                            {!! Form::submit('Delete', ['class' => 'btn btn-danger']) !!}
+                            {!! Form::close() !!}
+                        </td>
+                    @elseif ($user->branch == $journal->office)
+                        <td class= "color">{{ $journal->title }}</td>
+                        <td class= "color">{{ $journal->author }}</td>
+                        <td class= "color">{{ $journal->date }}</td>
+                        <td class= "color">{{ $journal->abstract }}</td>
+                        <td class= "color">{{ $journal->office }}</td>
+                        <td class= "color">{{ $journal->subject_field }}</td>
+                        <td><a class="btn btn-primary" target="_blank" rel="noopener noreferrer" href="{{ $journal->pdf_url }}">FILE</a></td>
+                        </td>
+                        <td>
+                            <a class="btn btn-primary" href="{{ route('journalCRUD.edit',$journal->id) }}">Edit</a>
+                            {!! Form::open(['method' => 'DELETE','route' => ['journalCRUD.destroy', $journal->id],'style'=>'display:inline']) !!}
+                            {!! Form::submit('Delete', ['class' => 'btn btn-danger']) !!}
+                            {!! Form::close() !!}
+                        </td>
+                    @endif
+                @endauth
+                
             </tr>
             @endforeach
             </table>

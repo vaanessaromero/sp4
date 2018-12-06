@@ -21,7 +21,7 @@
 
                 @if(session()->has('pdf_url'))
                   <div class="alert alert-info" role="alert">
-                    <p>Copy Link then paste to PDF URL</p>
+                    <p>Copy link then paste to PDF URL</p>
                     {{session()->get('pdf_url')}}
                   </div>
                 @endif
@@ -93,7 +93,7 @@
                 <div class="col-md-9">
                     <div class="form-group">
                         <strong>Author/s:</strong>
-                        {!! Form::text('author', null, array('placeholder' => 'Author/s','class' => 'form-control')) !!}
+                        {!! Form::text('author', null, array('placeholder' => 'Author/s (separate with comma if there are more than one author)','class' => 'form-control')) !!}
                     </div>
                 </div>
 
@@ -108,20 +108,34 @@
                 <div class="col-md-9">
                     <div class="form-group">
                         <strong>Abstract:</strong>
-                        {!! Form::text('abstract', null, array('Placeholder' => 'Abstract [can be empty.]','class' => 'form-control')) !!}
+                        {!! Form::text('abstract', null, array('Placeholder' => 'Abstract [can be empty]','class' => 'form-control')) !!}
                     </div>
                 </div>
 
+                <!-- <div class="col-md-9">
+                    <div class="form-group">
+                        <strong>Regional Office: </strong>
+                        {!! Form::select('office', array('National Capital Region' => 'National Capital Region','Region I' => 'Region I', 'Region II' => 'Region II', 'Region III' => 'Region III', 'Region IV' => 'Region IV', 'Region V' => 'Region V', 'Region VI' => 'Region VI', 'Region VII' => 'Region VII', 'Region VIII' => 'Region VIII', 'Region IX' => 'Region IX', 'Region X' => 'Region X', 'Region XI' => 'Region XI', 'Region XII' => 'Region XII', 'Region XIII' => 'Region XIII', 'Region XIV' => 'Region XIV')) !!}
+                    </div>
+                </div> -->
                 <div class="col-md-9">
                     <div class="form-group">
-                        <strong>Office:</strong>
-                        {!! Form::text('office', null, array('placeholder' => 'Office','class' => 'form-control')) !!}
+                        <strong>Field/s: </strong>
+                            <br><label>{{ Form::checkbox('aquaculture', 'yes', false) }} Aquaculture</label><br>
+                            <label>{{ Form::checkbox('a_business', 'yes', false) }} Agricultural Business</label><br>
+                            <label>{{ Form::checkbox('a_econ', 'yes', false) }} Agricultural Economics</label><br>
+                            <label>{{ Form::checkbox('a_equipment', 'yes', false) }} Agricultural Equipment</label><br>
+                            <label>{{ Form::checkbox('a_mgt', 'yes', false) }} Agricultural Management</label><br>
+                            <label>{{ Form::checkbox('agronomy', 'yes', false) }} Agronomy</label><br>
+                            <label>{{ Form::checkbox('animal_husbandry', 'yes', false) }} Animal Husbandry</label><br>
+                            <label>{{ Form::checkbox('crop_prod', 'yes', false) }} Crop Production</label><br>
+                            <label>{{ Form::checkbox('food_sci', 'yes', false) }} Food Science</label><br>
+                            <label>{{ Form::checkbox('forestry', 'yes', false) }} Forestry</label><br>
+                            <label>{{ Form::checkbox('horticulture', 'yes', false) }} Horticulture</label><br>
+                            <label>{{ Form::checkbox('soil_sci', 'yes', false) }} Soil Science</label><br>
+                            <label>{{ Form::checkbox('vet_sci', 'yes', false) }} Veterinary Science</label>
                     </div>
                 </div>
-
-                
-                
-
 
                 <div class="col-xs-12 col-sm-12 col-md-12 text-center">
                         <a class="btn btn-primary" href="{{ route('journalCRUD.index') }}"> Back</a>
