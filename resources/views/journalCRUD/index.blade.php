@@ -59,7 +59,6 @@
                         <td class= "color">{{ $journal->office }}</td>
                         <td class= "color">{{ $journal->subject_field }}</td>
                         <td align="center"><a class="btn btn-danger" target="_blank" rel="noopener noreferrer" href="{{ $journal->pdf_url }}">⟱</a></td>
-                        </td>
                         <td>
                             <a class="btn btn-primary" href="{{ route('journalCRUD.edit',$journal->id) }}">Edit</a>
                             {!! Form::open(['method' => 'DELETE','route' => ['journalCRUD.destroy', $journal->id],'style'=>'display:inline']) !!}
@@ -73,7 +72,7 @@
                         <td class= "color">{{ $journal->abstract }}</td>
                         <td class= "color">{{ $journal->office }}</td>
                         <td class= "color">{{ $journal->subject_field }}</td>
-                        <td><a class="btn btn-primary" target="_blank" rel="noopener noreferrer" href="{{ $journal->pdf_url }}">FILE</a></td>
+                        <td align="center"><a class="btn btn-danger" target="_blank" rel="noopener noreferrer" href="{{ $journal->pdf_url }}">⟱</a></td>
                         </td>
                         <td>
                             <a class="btn btn-primary" href="{{ route('journalCRUD.edit',$journal->id) }}">Edit</a>

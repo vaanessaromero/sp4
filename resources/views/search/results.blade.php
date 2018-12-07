@@ -86,7 +86,7 @@
                         <th>Date Published</th>
                         <th>Abstract</th>
                         <th>Regional Office</th>
-                        <th>PDF File</th>
+                        <th>Download File</th>
                         @auth
                             <th width="150px">Action</th> 
                         @endauth
@@ -99,14 +99,17 @@
                                 <td class= "color">{{ $journal->date }}</td>
                                 <td class= "color">{{ $journal->abstract }}</td>
                                 <td class= "color">{{ $journal->office }}</td>
-                                <td><a class="btn btn-primary" target="_blank" rel="noopener noreferrer" href="{{ $journal->pdf_url }}">FILE</a></td>
+                                <td align="center"><a class="btn btn-danger" target="_blank" rel="noopener noreferrer" href="{{ $journal->pdf_url }}">⟱</a></td>
                                 </td>
                                 @auth
                                     <td>
-                                        <a class="btn btn-primary" href="{{ route('journalCRUD.edit',$journal->id) }}">Edit</a>
-                                        {!! Form::open(['method' => 'DELETE','route' => ['journalCRUD.destroy', $journal->id],'style'=>'display:inline']) !!}
-                                        {!! Form::submit('Delete', ['class' => 'btn btn-danger']) !!}
-                                        {!! Form::close() !!}
+                                        @if ($user->branch == $journal->office || $user->access_level == 0)
+                                            <a class="btn btn-primary" href="{{ route('journalCRUD.edit',$journal->id) }}">Edit</a>
+                                            {!! Form::open(['method' => 'DELETE','route' => ['journalCRUD.destroy', $journal->id],'style'=>'display:inline']) !!}
+                                            {!! Form::submit('Delete', ['class' => 'btn btn-danger']) !!}
+                                            {!! Form::close() !!}
+                                        @endif
+                                        
                                     </td>
                                 @endauth
                             </tr>
