@@ -29,16 +29,16 @@ class SearchController extends Controller
                 $selected_field= $selected_field.", Aquaculture";
             }
             if (Input::get('a_business') == 'yes') {
-                $selected_field= $selected_field.", Agricultural Business";
+                $selected_field= $selected_field.", Business";
             }
             if (Input::get('a_econ') == 'yes') {
-                $selected_field= $selected_field.", Agricultural Economics";
+                $selected_field= $selected_field.", Economics";
             }
             if (Input::get('a_equipment') == 'yes') {
-               $selected_field= $selected_field.", Agricultural Equipment";
+               $selected_field= $selected_field.", Equipment";
             }
             if (Input::get('a_mgt') == 'yes') {
-                $selected_field= $selected_field.", Agricultural Management";
+                $selected_field= $selected_field.", Management";
             }
             if (Input::get('agronomy') == 'yes') {
                 $selected_field= $selected_field.", Agronomy";

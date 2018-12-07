@@ -106,7 +106,7 @@
                     <div class="form-group">
                         <label style="color: black;">PDF URL:</label>
 
-                        <input class="form-control" type="text" value="{{ session()->get('pdf_url') }}">
+                        <input class="form-control" name= "pdf_url" type="text" value="{{ session()->get('pdf_url') }}">
                     </div>
                 </div>
 
@@ -165,7 +165,7 @@
                     </div>
                 </div>
 
-                <div class="col-xs-12 col-sm-12 col-md-12 text-center">
+                <div class="col-xs-12 col-sm-12 col-md-12 text-center" >
                         <a class="btn btn-primary" href="{{ route('journalCRUD.index') }}"> Back</a>
                         <button type="submit" class="btn btn-danger">Submit</button>
                 </div>

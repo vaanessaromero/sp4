@@ -58,7 +58,7 @@ class Journal extends Model
                 'type' => 'text',
                 'fields' => [
                     'raw' => [
-                        'type' => 'date'
+                        'type' => 'keyword'
                     ]
                 ]
             ],

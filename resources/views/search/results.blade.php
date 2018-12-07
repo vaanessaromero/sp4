@@ -84,7 +84,7 @@
                         <th>Title</th>
                         <th>Author/s</th>
                         <th>Date Published</th>
-                        <th>Abstract</th>
+                        <!-- <th>Abstract</th> -->
                         <th>Regional Office</th>
                         <th>Download File</th>
                         @auth
@@ -97,7 +97,7 @@
                                 <td class= "color">{{ $journal->title }}</td>
                                 <td class= "color">{{ $journal->author }}</td>
                                 <td class= "color">{{ $journal->date }}</td>
-                                <td class= "color">{{ $journal->abstract }}</td>
+                                <!-- <td class= "color">{{ $journal->abstract }}</td> -->
                                 <td class= "color">{{ $journal->office }}</td>
                                 <td align="center"><a class="btn btn-danger" target="_blank" rel="noopener noreferrer" href="{{ $journal->pdf_url }}">⟱</a></td>
                                 </td>

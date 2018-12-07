@@ -22,7 +22,15 @@
         <div class="col-lg-12 margin-tb">
 
         <div class="card">
-             <div class="card-header" style="background-color: #9c1a04; color: white; font-size: 22px; font-weight: 600; letter-spacing: .1rem; text-decoration: none; text-transform: uppercase;;">LIBRARY INDEX
+             <div class="card-header" style="background-color: #9c1a04; color: white; font-size: 22px; font-weight: 600; letter-spacing: .1rem; text-decoration: none; text-transform: uppercase;;">
+                @auth
+                @if ($user->access_level == 0)
+                    LIBRARY INDEX
+                
+                @else
+                    {{$user->branch}} LIBRARY INDEX
+                @endif
+            @endauth
                 <div class="float-sm-right">
                     <a class="btn" href="{{ route('journalCRUD.create') }}" style="background-color: RGB(201, 59, 45); color: white"> Add Journal</a>
                 </div>
@@ -40,7 +48,7 @@
                     <th>Title</th>
                     <th>Author/s</th>
                     <th>Date Published</th>
-                    <th>Abstract</th>
+                    <!-- <th>Abstract</th> -->
                     <th>Office</th>
                     <th>Subject Field/s</th>
                     <th >Download File</th>
@@ -55,7 +63,7 @@
                         <td class= "color">{{ $journal->title }}</td>
                         <td class= "color">{{ $journal->author }}</td>
                         <td class= "color">{{ $journal->date }}</td>
-                        <td class= "color">{{ $journal->abstract }}</td>
+                        <!-- <td class= "color">{{ $journal->abstract }}</td> -->
                         <td class= "color">{{ $journal->office }}</td>
                         <td class= "color">{{ $journal->subject_field }}</td>
                         <td align="center"><a class="btn btn-danger" target="_blank" rel="noopener noreferrer" href="{{ $journal->pdf_url }}">⟱</a></td>
@@ -69,7 +77,7 @@
                         <td class= "color">{{ $journal->title }}</td>
                         <td class= "color">{{ $journal->author }}</td>
                         <td class= "color">{{ $journal->date }}</td>
-                        <td class= "color">{{ $journal->abstract }}</td>
+                        <!-- <td class= "color">{{ $journal->abstract }}</td> -->
                         <td class= "color">{{ $journal->office }}</td>
                         <td class= "color">{{ $journal->subject_field }}</td>
                         <td align="center"><a class="btn btn-danger" target="_blank" rel="noopener noreferrer" href="{{ $journal->pdf_url }}">⟱</a></td>

@@ -80,10 +80,10 @@ class JournalCRUDController extends Controller
         if (Input::get('horticulture') == 'yes') {
             $temp_string =  $temp_string.", Horticulture";
         }
-        if (Input::get('aquaculture') == 'yes') {
+        if (Input::get('soil_sci') == 'yes') {
             $temp_string =  $temp_string.", Soil Science";
         }
-        if (Input::get('soil_sci') == 'yes') {
+        if (Input::get('vet_sci') == 'yes') {
             $temp_string =  $temp_string.", Veterinary Science";
         }
 
@@ -91,7 +91,7 @@ class JournalCRUDController extends Controller
         	'title' => 'required|max:255',
             'author' => 'required|max:255',
             'date' => 'required',
-            'abstract' => 'max:1000',
+            'abstract' => 'max:2000',
             'pdf_url' => 'required',
         ]);
 
@@ -183,7 +183,7 @@ class JournalCRUDController extends Controller
             'title' => 'required|max:255',
             'author' => 'required|max:255',
             'date' => 'required',
-            'abstract' => 'max:500',
+            'abstract' => 'max:2000',
         ]);
 
         $request->merge([
