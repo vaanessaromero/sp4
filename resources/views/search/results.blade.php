@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="container">
-    <div class="row">
+    <!-- <div class="row">
         <div class="col-lg-12 margin-tb">
             @auth
                 @if ($user->access_level == 0)
@@ -15,7 +15,7 @@
                 <a class="btn btn-danger" href="{{ url('/') }}">Back to HOME</a>
             @endauth
         </div>
-    </div>
+    </div> -->
 
     <div class="row" align="center">
         <div class="col-sm-4" style="margin-left: 200px;">

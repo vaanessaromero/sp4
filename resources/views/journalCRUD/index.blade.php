@@ -5,7 +5,7 @@
 @section('content')
 
 <div class="container">
-    <div class="row">
+    <!-- <div class="row">
         <div class="col-lg-12 margin-tb">
             @auth
                 @if ($user->access_level == 0)
@@ -16,15 +16,15 @@
                 @endif
             @endauth
         </div>
-    </div>
+    </div> -->
     <br>
     <div class="row">
         <div class="col-lg-12 margin-tb">
 
         <div class="card">
-             <div class="card-header" style="background-color: RGB(201, 59, 45); color: white; font-size: 20px;">JOURNALS LIBRARY INDEX
-                <div class="pull-right">
-                    <a class="btn" href="{{ route('journalCRUD.create') }}" style="baackground-color: RGB(201, 59, 45); color: white"> Add Journal</a>
+             <div class="card-header" style="background-color: #9c1a04; color: white; font-size: 22px; font-weight: 600; letter-spacing: .1rem; text-decoration: none; text-transform: uppercase;;">LIBRARY INDEX
+                <div class="float-sm-right">
+                    <a class="btn" href="{{ route('journalCRUD.create') }}" style="background-color: RGB(201, 59, 45); color: white"> Add Journal</a>
                 </div>
 
              </div>
@@ -36,14 +36,14 @@
             @endif
 
             <table class="table table-bordered">
-                <tr>
+                <tr align="center">
                     <th>Title</th>
                     <th>Author/s</th>
                     <th>Date Published</th>
                     <th>Abstract</th>
                     <th>Office</th>
                     <th>Subject Field/s</th>
-                    <th>Download File</th>
+                    <th >Download File</th>
                    <!--  <th>Password</th> -->
                     <th width="150px">Action</th>
                 </tr>
@@ -58,7 +58,7 @@
                         <td class= "color">{{ $journal->abstract }}</td>
                         <td class= "color">{{ $journal->office }}</td>
                         <td class= "color">{{ $journal->subject_field }}</td>
-                        <td><a class="btn btn-primary" target="_blank" rel="noopener noreferrer" href="{{ $journal->pdf_url }}">FILE</a></td>
+                        <td align="center"><a class="btn btn-danger" target="_blank" rel="noopener noreferrer" href="{{ $journal->pdf_url }}">⟱</a></td>
                         </td>
                         <td>
                             <a class="btn btn-primary" href="{{ route('journalCRUD.edit',$journal->id) }}">Edit</a>

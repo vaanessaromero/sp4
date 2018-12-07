@@ -1,8 +1,35 @@
 @extends('layouts.app')
 <!-- layouts.admin -->
+<style>
+    p {
+        color: #636b6f;
+        padding: 0 25px;
+        font-size: 22px;
+        font-weight: 600;
+        letter-spacing: .1rem;
+        text-decoration: none;
+        text-transform: uppercase;
+    }
+    label {
+        color: #636b6f;
+        padding: 0 25px;
+        font-size: 12px;
+        font-weight: 600;
+        letter-spacing: .1rem;
+        text-decoration: none;
+        text-transform: uppercase;
+    }
+    .btn {
+        padding: 0 25px;
+        font-size: 12px;
+        font-weight: 600;
+        letter-spacing: .1rem;
+        text-decoration: none;
+        text-transform: uppercase;
+    }
+</style>
 
 @section('content')
-
 <!-- MODAL FOR PDF DOWNLOAD -->
 <div class="modal fade" id="modalPDFForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
   aria-hidden="true">
@@ -21,8 +48,7 @@
 
                 @if(session()->has('pdf_url'))
                   <div class="alert alert-info" role="alert">
-                    <p>Copy link then paste to PDF URL</p>
-                    {{session()->get('pdf_url')}}
+                    <p>Successfully uploaded file!</p>
                   </div>
                 @endif
                   <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
@@ -48,10 +74,11 @@
 </div>
 <!-- ------------------------=---------------------------------------- -->
 
-<div class="container" >
+<div class="container" style="margin-left: 270px;">
+    <br>
     <div class="col-md-8 col-md-offset-2">
-    <div class="panel panel-default" style="border-color: RGB(201, 59, 45); border-style: solid; border-width: 1px; padding-bottom: 10px;">
-        <div class="panel-heading" style="background-color: RGB(201, 59, 45); color: white; font-size: 20px; padding-left:20px;">Add Journal</div>
+    <div class="panel panel-default" style="border-color: #9c1a04; border-style: solid; border-width: 1px; padding-bottom: 10px;">
+        <div class="panel-heading" style="background-color: #9c1a04; color: white; font-size: 20px; padding-left:20px;"><p style="color: white; font-size: 15px;">Add Journal</p></div>
 
 
     @if (count($errors) > 0)
@@ -77,29 +104,30 @@
 
                 <div class="col-md-9">
                     <div class="form-group">
-                        <strong>PDF URL:</strong>
-                        {!! Form::text('pdf_url', null, array('placeholder' => 'URL','class' => 'form-control')) !!}
+                        <label style="color: black;">PDF URL:</label>
+
+                        <input class="form-control" type="text" value="{{ session()->get('pdf_url') }}">
                     </div>
                 </div>
 
 
                 <div class="col-md-9">
                     <div class="form-group">
-                        <strong>Title:</strong>
+                        <label style="color: black;">Title:</label>
                         {!! Form::text('title', null, array('placeholder' => 'Title','class' => 'form-control')) !!}
                     </div>
                 </div>
 
                 <div class="col-md-9">
                     <div class="form-group">
-                        <strong>Author/s:</strong>
+                        <label style="color: black;">Author/s:</label>
                         {!! Form::text('author', null, array('placeholder' => 'Author/s (separate with comma if there are more than one author)','class' => 'form-control')) !!}
                     </div>
                 </div>
 
                 <div class="col-md-9">
                     <div class="form-group">
-                        <strong>Date Published:</strong>
+                        <label style="color: black;">Date Published:</label>
                         {!! Form::text('date', null, array('Placeholder' => 'YYYY-MM-DD','class' => 'form-control')) !!}
                     </div>
                 </div>
@@ -107,7 +135,7 @@
 
                 <div class="col-md-9">
                     <div class="form-group">
-                        <strong>Abstract:</strong>
+                        <label style="color: black;">Abstract:</label>
                         {!! Form::text('abstract', null, array('Placeholder' => 'Abstract [can be empty]','class' => 'form-control')) !!}
                     </div>
                 </div>
@@ -120,7 +148,7 @@
                 </div> -->
                 <div class="col-md-9">
                     <div class="form-group">
-                        <strong>Field/s: </strong>
+                        <label style="color: black;">Field/s: </label>
                             <br><label>{{ Form::checkbox('aquaculture', 'yes', false) }} Aquaculture</label><br>
                             <label>{{ Form::checkbox('a_business', 'yes', false) }} Agricultural Business</label><br>
                             <label>{{ Form::checkbox('a_econ', 'yes', false) }} Agricultural Economics</label><br>

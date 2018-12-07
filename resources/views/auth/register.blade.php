@@ -1,5 +1,34 @@
 @extends('layouts.app')
 
+<style>
+    p {
+        color: #636b6f;
+        padding: 0 25px;
+        font-size: 22px;
+        font-weight: 600;
+        letter-spacing: .1rem;
+        text-decoration: none;
+        text-transform: uppercase;
+    }
+    label {
+        color: #fce7d2;
+        padding: 0 25px;
+        font-size: 12px;
+        font-weight: 600;
+        letter-spacing: .1rem;
+        text-decoration: none;
+        text-transform: uppercase;
+    }
+    .btn {
+        padding: 0 25px;
+        font-size: 12px;
+        font-weight: 600;
+        letter-spacing: .1rem;
+        text-decoration: none;
+        text-transform: uppercase;
+    }
+</style>
+
 @section('content')
 <div class="container" style="width:800px; margin:0 auto;">
     <div class="row" style="margin-top: 20px; margin-bottom: 20px;">
@@ -8,7 +37,7 @@
             <div class="panel panel-default" align="center" style="width: 30%;padding-bottom: 5px;border-radius: 10px;background-color: #9c1a04;width:800px; margin:0 auto;">
                 <div class="panel-heading">
                     <br>
-                    <p style="font-family: 'Raleway', sans-serif; font-size: 40px; color: white;"><strong>Create An Account</strong></p>
+                    <p style="color: white;"><strong>Create An Account</strong></p>
                 </div>
                 <div class="panel-body">
                     <form class="form-horizontal" role="form" method="POST" action="{{ route('register') }}">
@@ -108,7 +137,7 @@
 
                         <div class="form-group">
                             <div class="col-md-6 col-md-offset-4">
-                                <br><button type="submit" class="btn" style="background-color:white; color: RGB(164, 16, 19);">
+                                <br><button type="submit" class="btn" style="font-size: 12px; font-weight: 600; letter-spacing: .1rem; text-decoration: none; text-transform: uppercase;background-color:white; color: RGB(164, 16, 19);">
                                     Register
                                 </button>
                             </div>
@@ -118,8 +147,8 @@
             </div>
             <br>
             <div class="container" align="center" style="width:800px; margin:0 auto;">
-                <a class="btn" style="background-color:RGB(164, 16, 19); color: white;" href="{{ url('/search') }}">Enter as GUEST</a>
-                <a class="btn" style="background-color:RGB(164, 16, 19); color: white;" href="{{ url('/') }}">Go BACK</a>
+                <a class="btn" style="background-color:RGB(164, 16, 19); color: white; font-size: 12px;" href="{{ url('/search') }}">Enter as GUEST</a>
+                <a class="btn" style="background-color:RGB(164, 16, 19); color: white; font-size: 12px;" href="{{ url('/') }}">Go BACK</a>
             </div>
         </div>
     </div>
