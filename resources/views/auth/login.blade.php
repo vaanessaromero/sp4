@@ -35,7 +35,7 @@
         <div class="col-md-8 col-md-offset-2">
 
 
-            <div class="panel panel-default" align="center" style="width: 30%;padding-top:30px;padding-bottom: 20px;border-radius: 10px;background-color: #9c1a04;width:800px; margin:0 auto;">
+            <div class="panel panel-default" align="center" style="width: 30%;padding-top:30px;padding-bottom: 20px;border-radius: 10px;background-color: #77ab59;width:800px; margin:0 auto;">
                 <div class="container" style="">
                     <div class="panel-heading">
                         <p style="color: white;"><strong>Log In</strong></p>
@@ -45,7 +45,7 @@
                             {{ csrf_field() }}
 
                             <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
-                                <label for="email" class="col-md-4 control-label" style="color: #fce7d2">E-Mail Address</label>
+                                <label for="email" class="col-md-4 control-label" style="color: #234d20">E-Mail Address</label>
 
                                 <div class="col-md-6">
                                     <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" required autofocus>
@@ -59,7 +59,7 @@
                             </div>
 
                             <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
-                                <label for="password" class="col-md-4 control-label" style="color: #fce7d2">Password</label>
+                                <label for="password" class="col-md-4 control-label" style="color: #234d20">Password</label>
 
                                 <div class="col-md-6">
                                     <input id="password" type="password" class="form-control" name="password" required>
@@ -75,7 +75,7 @@
                             <div class="form-group">
                                 <div class="col-md-6 col-md-offset-4">
                                     <div class="checkbox">
-                                        <label style="color: #fce7d2">
+                                        <label style="color: #234d20">
                                             <input type="checkbox" name="remember" {{ old('remember') ? 'checked' : '' }}> Remember Me
                                         </label>
                                     </div>
@@ -84,7 +84,7 @@
 
                             <div class="form-group">
                                 <div class="col-md-8 col-md-offset-4">
-                                    <button type="submit" class="btn" style="font-size: 12px; font-weight: 600; letter-spacing: .1rem; text-decoration: none; text-transform: uppercase;background-color:white; color: RGB(164, 16, 19);">
+                                    <button type="submit" class="btn" style="font-size: 12px; font-weight: 600; letter-spacing: .1rem; text-decoration: none; text-transform: uppercase;background-color:white; color: #234d20;">
                                         Login
                                     </button>
                                 </div>
@@ -97,8 +97,8 @@
             </div>
             <br>
             <div class="container" align="center" style="width:800px; margin:0 auto;">
-                <a class="btn" style="background-color:RGB(164, 16, 19); color: white; font-size: 12px;" href="{{ url('/search') }}">Enter as GUEST</a>
-                <a class="btn" style="background-color:RGB(164, 16, 19); color: white; font-size: 12px;" href="{{ url('/') }}">Go BACK</a>
+                <a class="btn" style="background-color:#234d20; color: white; font-size: 12px;" href="{{ url('/search') }}">Enter as GUEST</a>
+                <a class="btn" style="background-color:#234d20; color: white; font-size: 12px;" href="{{ url('/') }}">Go BACK</a>
             </div>
         </div>
     </div>

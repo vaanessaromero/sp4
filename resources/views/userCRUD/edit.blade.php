@@ -5,7 +5,7 @@
 <div class="wrapper wrapper-content">
 <div class="col-md-8 col-md-offset-2">
     <div class="panel panel-default">
-        <div class="panel-heading" style="background-color: RGB(201, 59, 45); color: white; font-size: 20px;">Edit User Info</div>
+        <div class="panel-heading" style="background-color: #77ab59; color: white; font-size: 20px;">Edit User Info</div>
 
     @if (count($errors) > 0)
         <div class="alert alert-danger">

@@ -16,6 +16,6 @@ class WelcomeController extends Controller
     public function index()
     {
     	$user = Auth::user();
-        return view('welcome',compact('user'));
+        return view('welcome2',compact('user'));
     }
 }

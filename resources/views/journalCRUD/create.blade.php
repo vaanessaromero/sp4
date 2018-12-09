@@ -60,7 +60,7 @@
 
                 <div class="form-group">
                     <div class="col-md-8 col-md-offset-4">
-                        <button type="submit" class="btn" style="background-color:white; color: RGB(164, 16, 19);">
+                        <button type="submit" class="btn" style="background-color:#234d20; color: white;">
                             Upload
                         </button>
                     </div>
@@ -77,8 +77,8 @@
 <div class="container" style="margin-left: 270px;">
     <br>
     <div class="col-md-8 col-md-offset-2">
-    <div class="panel panel-default" style="border-color: #9c1a04; border-style: solid; border-width: 1px; padding-bottom: 10px;">
-        <div class="panel-heading" style="background-color: #9c1a04; color: white; font-size: 20px; padding-left:20px;"><p style="color: white; font-size: 15px;">Add Journal</p></div>
+    <div class="panel panel-default" style="border-color: #234d20; border-style: solid; border-width: 1px; padding-bottom: 10px;">
+        <div class="panel-heading" style="background-color: #234d20; color: white; font-size: 20px; padding-left:20px;"><p style="color: white; font-size: 15px;">Add Journal</p></div>
 
 
     @if (count($errors) > 0)
@@ -96,7 +96,7 @@
     <div class="panel-body" style="padding-left: 20px;">
         <!-- CALL PDF MODAL -->
         <div class="text-center">
-          <a href="" class="btn btn-danger btn-rounded mb-4" data-toggle="modal" data-target="#modalPDFForm">Upload PDF File</a>
+          <a href="" class="btn btn-success btn-rounded mb-4" data-toggle="modal" data-target="#modalPDFForm">Upload PDF File</a>
         </div>
     {!! Form::open(array('route' => 'journalCRUD.store','method'=>'POST')) !!}
             <div class="row">
@@ -166,8 +166,8 @@
                 </div>
 
                 <div class="col-xs-12 col-sm-12 col-md-12 text-center" >
-                        <a class="btn btn-primary" href="{{ route('journalCRUD.index') }}"> Back</a>
-                        <button type="submit" class="btn btn-danger">Submit</button>
+                        <a class="btn btn-danger" href="{{ route('journalCRUD.index') }}"> Back</a>
+                        <button type="submit" class="btn btn-success">Submit</button>
                 </div>
             </div>
     {!! Form::close() !!}

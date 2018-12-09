@@ -18,7 +18,7 @@
 
     
     <div id="app">
-        <nav class="navbar navbar-inverse navbar-static-top" style="background-color:#9c1a04">
+        <nav class="navbar navbar-inverse navbar-static-top" style="background-color:#77ab59">
             <div class="container">
                 <div class="navbar-header pull-left" style="margin-top: 13px;">
                     <a href="/" style="color: white; padding: 0 25px; font-size: 12px; font-weight: 600; letter-spacing: .1rem; text-decoration: none; text-transform: uppercase;"><strong>HOME</strong> | Journals Library</a>

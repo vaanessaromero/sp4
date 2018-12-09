@@ -46,7 +46,7 @@ class Journal extends Model
                     ]
                 ]
             ],
-            'author' => [
+            'author_id' => [
                 'type' => 'text',
                 'fields' => [
                     'raw' => [
@@ -78,7 +78,7 @@ class Journal extends Model
                     ]
                 ]
             ],
-            'subject_field' => [
+            'subject_id' => [
                 'type' => 'text',
                 'fields' => [
                     'raw' => [
@@ -97,9 +97,23 @@ class Journal extends Model
         ]
     ];
 
+    protected $casts = [
+        'subject_field' => 'array',
+        'author' => 'array',
+    ];
+
     public function upload()
     {
         return $this->hasOne('App\Upload');
     }
+    public function author()
+    {
+        return $this->belongsToMany('App\Author');
+    }
+    public function subject()
+    {
+        return $this->belongsToMany('App\Subject');
+    }
 }
+
 

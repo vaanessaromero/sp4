@@ -37,7 +37,7 @@
     <div class="row justify-content-center">
         <div class="col-lg-12 margin-tb">
             <div class="card">
-                <div class="card-header" style="background-color: RGB(201, 59, 45); color: white; font-size: 20px;">SEARCH RESULTS</div>
+                <div class="card-header" style="background-color: #77ab59; color: white; font-size: 20px;">SEARCH RESULTS</div>
 
                 
                 @if (empty($selected_region))
@@ -99,7 +99,7 @@
                                 <td class= "color">{{ $journal->date }}</td>
                                 <!-- <td class= "color">{{ $journal->abstract }}</td> -->
                                 <td class= "color">{{ $journal->office }}</td>
-                                <td align="center"><a class="btn btn-danger" target="_blank" rel="noopener noreferrer" href="{{ $journal->pdf_url }}">⟱</a></td>
+                                <td align="center"><a class="btn btn-success" target="_blank" rel="noopener noreferrer" href="{{ $journal->pdf_url }}">⟱</a></td>
                                 </td>
                                 @auth
                                     <td>

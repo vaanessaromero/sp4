@@ -72,9 +72,10 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::get('guest', function(){
-    return view('search.results');
-});
+
+Route::get('/authors', 'AuthorController@index');
+Route::get('/subjects', 'SubjectController@index');
+Route::get('/searchresults', 'SearchResultsController@index');
 
 Route::get('/journalCRUD.create', 'PDFUploadController@index');
 
