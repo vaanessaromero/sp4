@@ -22,6 +22,8 @@ class Journal extends Model
         // MySearchRule::class
     ];
 
+    protected $fillable = ['title', 'author', 'date','abstract', 'office','subject_txt', 'pdf_url'];
+
     /**
      * @var array
      */
@@ -40,17 +42,18 @@ class Journal extends Model
             ],
             'title' => [
                 'type' => 'text',
+                'fielddata' => true,
                 'fields' => [
                     'raw' => [
-                        'type' => 'keyword'
+                        'type' => 'text'
                     ]
                 ]
             ],
-            'author_id' => [
+            'author' => [
                 'type' => 'text',
                 'fields' => [
                     'raw' => [
-                        'type' => 'keyword'
+                        'type' => 'text'
                     ]
                 ]
             ],
@@ -58,7 +61,7 @@ class Journal extends Model
                 'type' => 'text',
                 'fields' => [
                     'raw' => [
-                        'type' => 'keyword'
+                        'type' => 'text'
                     ]
                 ]
             ],
@@ -66,7 +69,7 @@ class Journal extends Model
                 'type' => 'text',
                 'fields' => [
                     'raw' => [
-                        'type' => 'keyword'
+                        'type' => 'text'
                     ]
                 ]
             ],
@@ -74,15 +77,15 @@ class Journal extends Model
                 'type' => 'text',
                 'fields' => [
                     'raw' => [
-                        'type' => 'keyword'
+                        'type' => 'text'
                     ]
                 ]
             ],
-            'subject_id' => [
+            'subject_txt' => [
                 'type' => 'text',
                 'fields' => [
                     'raw' => [
-                        'type' => 'keyword'
+                        'type' => 'text'
                     ]
                 ]
             ],
@@ -90,7 +93,7 @@ class Journal extends Model
                 'type' => 'text',
                 'fields' => [
                     'raw' => [
-                        'type' => 'keyword'
+                        'type' => 'text'
                     ]
                 ]
             ],
@@ -98,22 +101,24 @@ class Journal extends Model
     ];
 
     protected $casts = [
-        'subject_field' => 'array',
-        'author' => 'array',
+        'author_id' => 'array',
     ];
 
     public function upload()
     {
         return $this->hasOne('App\Upload');
     }
-    public function author()
-    {
-        return $this->belongsToMany('App\Author');
-    }
+    // public function author()
+    // {
+    //     return $this->belongsToMany('App\Author');
+    // }
     public function subject()
     {
         return $this->belongsToMany('App\Subject');
     }
+    // public function subjects(){
+    //     return $this->belongsToMany( 'App\Subject', 'journal_subject', 'journal_id', 'subject_id' );
+    // }
 }
 
 

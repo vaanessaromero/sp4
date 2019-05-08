@@ -39,7 +39,7 @@ class Author extends Model
                 'type' => 'text',
                 'fields' => [
                     'raw' => [
-                        'type' => 'keyword'
+                        'type' => 'text'
                     ]
                 ]
             ],
@@ -47,7 +47,7 @@ class Author extends Model
                 'type' => 'text',
                 'fields' => [
                     'raw' => [
-                        'type' => 'keyword'
+                        'type' => 'text'
                     ]
                 ]
             ]

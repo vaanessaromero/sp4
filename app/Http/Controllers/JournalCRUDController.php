@@ -10,6 +10,7 @@ use App\Subject;
 use Illuminate\Pagination\Paginator;
 use Auth;
 use Illuminate\Support\Facades\Input;
+use Illuminate\Support\Facades\DB;
 
 class JournalCRUDController extends Controller
 {
@@ -21,18 +22,13 @@ class JournalCRUDController extends Controller
      */
     public function index(Request $request)
     {
-        $journals = Journal::orderBy('title','asc')->paginate(10);
+        $journals = DB::table('journals')->paginate(10);
 
-        foreach ($journals as $j) {
-            $a_array = json_decode($j->author_id);
-            $s_array = json_decode($j->subject_id);
-        }
 
-        $authors = Author::find($a_array);
-        $subjects = Subject::find($s_array);
         $user = Auth::user();
-        
-        return view('journalCRUD.index',compact('journals','user','authors','subjects'));
+        $journal_subject = DB::table('journal_subject')->get();
+        $subjects = Subject::orderBy('field','asc')->get();
+        return view('journalCRUD.index',compact('journals','user','subjects','journal_subject'));
     }
 
     /**
@@ -41,10 +37,11 @@ class JournalCRUDController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function create()
-    {
-        
+    {     
         $journal = Journal::get();
-        return view('journalCRUD.create',compact('journal'));
+        $subjects = Subject::orderBy('field','asc')->paginate(10);
+
+        return view('journalCRUD.create',compact('journal','subjects'));
     }
 
     /**
@@ -55,48 +52,18 @@ class JournalCRUDController extends Controller
      */
     public function store(Request $request)
     {
-        // $temp_string = "";
+        $temp_string = "";
         $user = Auth::user();
 
-        // if (Input::get('aquaculture') == 'yes') {
-        //     $temp_string =  $temp_string.", Aquaculture";
-        // }
-        // if (Input::get('a_business') == 'yes') {
-        //     $temp_string =  $temp_string.", Agricultural Business";
-        // }
-        // if (Input::get('a_econ') == 'yes') {
-        //     $temp_string =  $temp_string.", Agricultural Economics";
-        // }
-        // if (Input::get('a_equipment') == 'yes') {
-        //     $temp_string =  $temp_string.", Agricultural Equipment";
-        // }
-        // if (Input::get('a_mgt') == 'yes') {
-        //     $temp_string =  $temp_string.", Agricultural Management";
-        // }
-        // if (Input::get('agronomy') == 'yes') {
-        //     $temp_string =  $temp_string.", Agronomy";
-        // }
-        // if (Input::get('animal_husbandry') == 'yes') {
-        //     $temp_string =  $temp_string.", Animal Husbandry";
-        // }
-        // if (Input::get('crop_prod') == 'yes') {
-        //     $temp_string =  $temp_string.", Crop Production";
-        // }
-        // if (Input::get('food_sci') == 'yes') {
-        //     $temp_string =  $temp_string.", Food Science";
-        // }
-        // if (Input::get('forestry') == 'yes') {
-        //     $temp_string =  $temp_string.", Forestry";
-        // }
-        // if (Input::get('horticulture') == 'yes') {
-        //     $temp_string =  $temp_string.", Horticulture";
-        // }
-        // if (Input::get('soil_sci') == 'yes') {
-        //     $temp_string =  $temp_string.", Soil Science";
-        // }
-        // if (Input::get('vet_sci') == 'yes') {
-        //     $temp_string =  $temp_string.", Veterinary Science";
-        // }
+        $subject_fields = $request->subject_checked; 
+
+        foreach ($subject_fields as $subject_field_id) {
+            $currentId = Journal::orderBy('id', 'desc')->first()->id + 1;
+            DB::insert('insert into journal_subject values(?,?,?)', [NULL,$currentId,$subject_field_id]);
+
+            $temp = Subject::where('id',$subject_field_id)->first();
+            $temp_string =$temp_string.$temp->field." ";
+        }
 
         $this->validate($request, [
         	'title' => 'required|max:255',
@@ -106,7 +73,7 @@ class JournalCRUDController extends Controller
         ]);
 
         $request->merge([
-            'subject_field' => $temp_string,
+            'subject_txt' => $temp_string,
             'office' => $user->branch,
         ]);
 
@@ -124,7 +91,8 @@ class JournalCRUDController extends Controller
     public function show($id)
     {
         $journal = Journal::find($id);
-        return view('journalCRUD.show',compact('journal'));
+        $journal_subject = DB::table('journal_subject')->get();
+        return view('journalCRUD.show',compact('journal','journal_subject'));
     }
 
     /**
@@ -136,7 +104,8 @@ class JournalCRUDController extends Controller
     public function edit($id)
     {
         $journal = Journal::find($id);
-        return view('journalCRUD.edit',compact('journal'));
+        $subjects = Subject::get();
+        return view('journalCRUD.edit',compact('journal','subjects'));
     }
 
     /**
@@ -149,44 +118,15 @@ class JournalCRUDController extends Controller
     public function update(Request $request, $id)
     {
         $temp_string = "";
-        if (Input::get('aquaculture') == 'yes') {
-            $temp_string =  $temp_string.", Aquaculture";
-        }
-        if (Input::get('a_business') == 'yes') {
-            $temp_string =  $temp_string.", Agricultural Business";
-        }
-        if (Input::get('a_econ') == 'yes') {
-            $temp_string =  $temp_string.", Agricultural Economics";
-        }
-        if (Input::get('a_equipment') == 'yes') {
-            $temp_string =  $temp_string.", Agricultural Equipment";
-        }
-        if (Input::get('a_mgt') == 'yes') {
-            $temp_string =  $temp_string.", Agricultural Management";
-        }
-        if (Input::get('agronomy') == 'yes') {
-            $temp_string =  $temp_string.", Agronomy";
-        }
-        if (Input::get('animal_husbandry') == 'yes') {
-            $temp_string =  $temp_string.", Animal Husbandry";
-        }
-        if (Input::get('crop_prod') == 'yes') {
-            $temp_string =  $temp_string.", Crop Production";
-        }
-        if (Input::get('food_sci') == 'yes') {
-            $temp_string =  $temp_string.", Food Science";
-        }
-        if (Input::get('forestry') == 'yes') {
-            $temp_string =  $temp_string.", Forestry";
-        }
-        if (Input::get('horticulture') == 'yes') {
-            $temp_string =  $temp_string.", Horticulture";
-        }
-        if (Input::get('soil_sci') == 'yes') {
-            $temp_string =  $temp_string.", Soil Science";
-        }
-        if (Input::get('vet_sci') == 'yes') {
-            $temp_string =  $temp_string.", Veterinary Science";
+        DB::table('journal_subject')->where('journal_id',$id)->delete();
+
+        $subject_fields = $request->subject_checked;
+        
+        foreach ($subject_fields as $subject_field_id) {
+           DB::insert('insert into journal_subject values(?,?,?)', [NULL,$id,$subject_field_id]);
+
+           $temp = Subject::where('id',$subject_field_id)->first();
+            $temp_string =$temp_string.$temp->field." ";
         }
 
         $this->validate($request, [
@@ -197,7 +137,7 @@ class JournalCRUDController extends Controller
         ]);
 
         $request->merge([
-            'subject_field' => $temp_string,
+            'subject_txt' => $temp_string
         ]);
 
         Journal::find($id)->update($request->all());
@@ -217,6 +157,13 @@ class JournalCRUDController extends Controller
         return redirect()->route('journalCRUD.index')
                         ->with('success','Journal deleted successfully');
     }
+
+    // public function getJournals(){
+    //     $journals = Journal::where('id', '=', $id)
+    //                         ->with('subjects')
+    //                         ->first();
+    //     return response()->json( $cafes );
+    // }
 
 
 }

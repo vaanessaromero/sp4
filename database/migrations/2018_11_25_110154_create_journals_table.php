@@ -16,11 +16,11 @@ class CreateJournalsTable extends Migration
         Schema::create('journals', function (Blueprint $table) {
             $table->increments('id');
             $table->string('title');
-            $table->json('author_id');
+            $table->string('author');
             $table->integer('date');
             $table->text('abstract');
             $table->text('office');
-            $table->json('subject_id');
+            $table->text('subject_txt');
             $table->text('pdf_url');
             $table->timestamps();
         });

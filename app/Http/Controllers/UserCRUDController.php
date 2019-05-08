@@ -7,6 +7,8 @@ use App\Http\Controllers\Controller;
 use App\Users;
 use Illuminate\Pagination\Paginator;
 
+use Illuminate\Support\Facades\DB;
+
 class UserCRUDController extends Controller
 {
     //
@@ -17,7 +19,7 @@ class UserCRUDController extends Controller
      */
     public function index(Request $request)
     {
-        $user = Users::orderBy('access_level','asc')->paginate();
+        $user = DB::table('users')->orderBy('access_level','asc')->get();
         return view('userCRUD.index',compact('user'))
             ->with('i', ($request->input('page', 1) - 1) * 5);
     }

@@ -23,7 +23,7 @@
 					  <ul class="nav metismenu" id="side-menu">
 						 <li class="nav-header">
 							<div class="dropdown profile-element mt-10-neg">
-							   <img class="c-logo align-left" style="width: 160px;" src="{{ asset('assets/img/user_logo.png') }}">
+							   <img class="c-logo align-left" style="width: 160px;" src="{{ asset('https://res.cloudinary.com/dzhe5doam/image/upload/v1557200954/user_logo.png') }}">
 							</div>
 							<div class="logo-element">
 							   JL
@@ -31,6 +31,9 @@
 						 </li>
 						<li class="">
 							<a href="{{ url('journalCRUD') }}"><i class="fa fa fa-list-alt"></i> <span class="nav-label">Manage Journals</span></a>
+						 </li>
+						 <li class="">
+							<a href="{{ url('subjectCRUD') }}"><i class="fa fa fa-list-alt"></i> <span class="nav-label">Manage Subject Fields</span></a>
 						 </li>
 						 <li class="">
 							<a href="{{ url('search') }}"><i class="fa fa fa-list-alt"></i> <span class="nav-label">Search</span></a>
@@ -64,7 +67,7 @@
 						  </div>
 						  <ul class="nav navbar-header">
 							 <li class="welcome-li">
-								<span class="m-r-sm text-muted welcome-message"><strong>JOURNALS LIBRARY - MEMBER DASHBOARD</strong></span>
+								<span class="m-r-sm text-muted welcome-message"><strong><a href="/home" style="color:gray">JOURNALS LIBRARY - MEMBER DASHBOARD</a></strong></span>
 							 </li>
 						  </ul>
 						  <ul class="nav navbar-top-links navbar-right">

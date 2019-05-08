@@ -31,8 +31,13 @@
     <br><p align="center" style="color: black; font-size: 20px;">AUTHORS</p>
     @if(!empty($authors))
         @foreach ($authors as $author)
-             <a href="/searchresults" style="color: #234d20;">{{ $author->last_name }}, {{ $author->first_name }}</a><br>
-    
+             <br>
+            <form id="elasticScout" action="{{ url('searchresults/author/' . $author->id) }}" method="get">
+                <div class="mysearchbar" style="width: 90%;">
+                     <input name="author_id" type="hidden" class="form-control" value="{{ $author->id }}"><br>
+                 </div>
+                 <button type="submit" style="color: #234d20;">{{ $author->last_name }}, {{ $author->first_name }}</button>
+            </form>
         @endforeach
     @else
         <p align="center" style="color: black;">no results found</p>

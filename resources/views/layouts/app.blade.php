@@ -22,6 +22,9 @@
             <div class="container">
                 <div class="navbar-header pull-left" style="margin-top: 13px;">
                     <a href="/" style="color: white; padding: 0 25px; font-size: 12px; font-weight: 600; letter-spacing: .1rem; text-decoration: none; text-transform: uppercase;"><strong>HOME</strong> | Journals Library</a>
+
+                    <a href="javascript:history.back()" style="color: white; padding: 0 25px; font-size: 12px; margin-left: 750px; font-weight: 600; letter-spacing: .1rem; text-decoration: none; text-transform: uppercase;"><strong>GO BACK</strong></a>
+                    
                 </div>
 
                 <div class="collapse navbar-collapse" id="app-navbar-collapse">

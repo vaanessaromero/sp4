@@ -11,7 +11,8 @@ use Auth;
 use Illuminate\Support\Facades\Input;
 
 class SubjectController extends Controller
-{
+{   
+    
     //
     /**
      * Display a listing of the resource.
@@ -22,7 +23,8 @@ class SubjectController extends Controller
     {
         $subjects = Subject::orderBy('field','asc')->paginate(10);
         $user = Auth::user();
-        return view('search.subjects',compact('subjects','user'));
+        // return view('search.subjects','subjectCRUD.index',compact('subjects','user'));
+        return view('subjectCRUD.index',compact('subjects','user'));
     }
 
     /**
@@ -32,9 +34,8 @@ class SubjectController extends Controller
      */
     public function create()
     {
-        
         $subject = Subject::get();
-        return view('journalCRUD.create',compact('subject'));
+        return view('subjectCRUD.index',compact('subject'));
     }
 
     /**
@@ -49,13 +50,12 @@ class SubjectController extends Controller
         $user = Auth::user();
 
         $this->validate($request, [
-            'first_name' => 'max:50',
-            'last_name' => 'max:50'
+            'field' => 'max:50'
         ]);
 
         Subject::create($request->all());
-        return redirect()->route('journalCRUD.index')
-                        ->with('success','subject created successfully');
+        return redirect()->route('subjectCRUD.index')
+                        ->with('success','Subject created successfully');
     }
 
     /**
@@ -67,6 +67,50 @@ class SubjectController extends Controller
     public function show($id)
     {
         $subject = Subject::find($id);
-        return view('subjectCRUD.show',compact('subject'));
+        return view('subjectCRUD.index',compact('subject'));
+    }
+
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function edit($id)
+    {
+        $subject = Subject::find($id);
+        return view('subjectCRUD.index',compact('subject'));
+    }
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function update(Request $request, $id)
+    {
+        $this->validate($request, [
+            'field' => 'max:50',
+        ]);
+
+        Subject::find($id)->update($request->all());
+        return redirect()->route('subjectCRUD.index')
+                        ->with('success','Subject Field updated successfully!');
+    }
+
+    public function destroy($id)
+    {
+        Subject::find($id)->delete();
+        return redirect()->route('subjectCRUD.index')
+                        ->with('success','Subject field deleted successfully!');
+    }
+
+    public function viewAll(Request $request)
+    {
+        $subjects = Subject::orderBy('field','asc')->paginate(10);
+        $user = Auth::user();
+        return view('search.subjects',compact('subjects','user'));
     }
 }

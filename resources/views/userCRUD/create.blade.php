@@ -60,7 +60,7 @@
                 <div class="col-md-9">
                     <div class="form-group">
                         <strong>Regional Office</strong>
-                        {!! Form::select('branch', array('National Capital Region' => 'National Capital Region','Region I' => 'Region I', 'Region II' => 'Region II', 'Region III' => 'Region III', 'Region IV' => 'Region IV', 'Region V' => 'Region V', 'Region VI' => 'Region VI', 'Region VII' => 'Region VII', 'Region VIII' => 'Region VIII', 'Region IX' => 'Region IX', 'Region X' => 'Region X', 'Region XI' => 'Region XI', 'Region XII' => 'Region XII', 'Region XIII' => 'Region XIII', 'Region XIV' => 'Region XIV')) !!}
+                        {!! Form::select('branch', array('NationalCapitalRegion' => 'NationalCapitalRegion','RegionI' => 'RegionI', 'RegionII' => 'RegionII', 'RegionIII' => 'RegionIII', 'RegionIVA' => 'RegionIVA','RegionIVB' => 'RegionIVB', 'RegionV' => 'RegionV', 'RegionVI' => 'RegionVI', 'RegionVII' => 'RegionVII', 'RegionVIII' => 'RegionVIII', 'RegionIX' => 'RegionIX', 'RegionX' => 'RegionX', 'RegionXI' => 'RegionXI', 'RegionXII' => 'RegionXII', 'RegionXIII' => 'RegionXIII', 'RegionXIV' => 'RegionXIV')) !!}
                     </div>
                 </div>
 

@@ -23,7 +23,7 @@
 					  <ul class="nav metismenu" id="side-menu">
 						 <li class="nav-header">
 							<div class="dropdown profile-element mt-10-neg">
-							   <img class="c-logo align-left" style="width: 160px;" src="{{ asset('assets/img/admin_logo.png') }}">
+							   <img class="c-logo align-left" style="width: 160px;" src="{{ asset('https://res.cloudinary.com/dzhe5doam/image/upload/v1557200946/admin_logo.png') }}">
 							</div>
 							<div class="logo-element">
 							   JL
@@ -32,9 +32,7 @@
 						 <li class="">
 							<a href="{{ url('userCRUD') }}"><i class="fa fa fa-list-alt"></i> <span class="nav-label">Manage Users</span></a>
 							<a href="{{ url('journalCRUD') }}"><i class="fa fa fa-list-alt"></i> <span class="nav-label">Manage Journals</span></a>
-						 </li>
-						 <li class="">
-							<a href="{{ url('search') }}"><i class="fa fa fa-list-alt"></i> <span class="nav-label">Search</span></a>
+							<a href="{{ url('subjectCRUD') }}"><i class="fa fa fa-list-alt"></i> <span class="nav-label">Manage Subject Fields</span></a>
 						 </li>
 						 <li class="">
 							<a href="#"><i class="fa fa fa-gears"></i> <span class="nav-label">Settings</span><span class="fa arrow"></span></a>
@@ -66,7 +64,7 @@
 						  </div>
 						  <ul class="nav navbar-header">
 							 <li class="welcome-li">
-								<span class="m-r-sm text-muted welcome-message"><strong>JOURNALS LIBRARY - ADMINISTRATOR DASHBOARD</strong></span>
+								<span class="m-r-sm text-muted welcome-message"><strong><a href="/admin/home" style="color:gray">JOURNALS LIBRARY - ADMINISTRATOR DASHBOARD</a></strong></span>
 							 </li>
 						  </ul>
 						  <ul class="nav navbar-top-links navbar-right">
@@ -91,7 +89,7 @@
 					<br>
 					<div class="footer">
 					   <div class="col-md-6">
-						  <strong>All Rights Reserved</strong>  &copy; 2018               
+						  <strong>All Rights Reserved</strong>  &copy; 2019               
 					   </div>
 					</div>
 					

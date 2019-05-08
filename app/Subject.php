@@ -9,6 +9,7 @@ class Subject extends Model
 {
     use Searchable;
 
+    public $fillable = ['field'];
     /**
      * @var string
      */
@@ -49,5 +50,6 @@ class Subject extends Model
     public function journal()
     {
         return $this->belongsToMany('App\Journal');
+        // return $this->belongsToMany( 'App\Journal', 'journal_subject', 'subject_id', 'journal_id' );
     }
 }

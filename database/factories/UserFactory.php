@@ -26,13 +26,15 @@ $factory->define(App\User::class, function (Faker $faker) {
 });
 
 
+
 $factory->define(App\Journal::class, function (Faker $faker) {
     return [
         'title' => ucfirst($faker->realText(15)),
-        'author' => $faker->realText(100),
+        'author_id' => array(1,2),
         'date' => $faker->date(),
-        'abstract' => $faker->realText(500),
-        'office' => $faker->realText(100),
-        'pdf_url' => $faker->realText(50),
+        'abstract' => $faker->realText(200),
+        'subject_id' => array(1,2),
+        'office' => $faker->realText(15),
+        'pdf_url' => $faker->realText(15),
     ];
 });

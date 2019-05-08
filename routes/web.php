@@ -66,6 +66,7 @@ Route::group(['middleware' => 'App\Http\Middleware\CheckStatus' ], function(){
 	Route::get('/admin/editaccount', 'Auth\ChangePasswordController@index');
 	Route::post('/admin/editaccount', 'Auth\ChangePasswordController@update');
 	Route::resource('userCRUD','UserCRUDController');
+	Route::resource('subjectCRUD','SubjectController');
 	Route::resource('journalCRUD','JournalCRUDController');
 });
 Auth::routes();
@@ -74,8 +75,21 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 
 Route::get('/authors', 'AuthorController@index');
-Route::get('/subjects', 'SubjectController@index');
+Route::get('/regions', 'RegionController@index');
+Route::get('/subjects', 'SubjectController@viewAll');
 Route::get('/searchresults', 'SearchResultsController@index');
+
+Route::get('searchresults/author/{author_id}','SearchResultsController@all_author_result')->name('searchresults.author');
+
+Route::get('searchresults/subject/{subject_id}','SearchResultsController@all_subject_result')->name('searchresults.subject');
+Route::get('searchresults/region/{region}','SearchResultsController@all_region_result')->name('searchresults.region');
+
+// Route::get('okokok/{region}','SearchResultsController@hehe');
+
+Route::get('/searchresults/author', 'SearchResultsController@searchbyauthor');
+Route::get('/searchresults/keyword', 'SearchResultsController@searchbykeyword');
+Route::get('/searchresults/title', 'SearchResultsController@searchbytitle');
+Route::get('/searchresults/subject', 'SearchResultsController@searchbysubject');
 
 Route::get('/journalCRUD.create', 'PDFUploadController@index');
 

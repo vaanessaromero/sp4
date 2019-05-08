@@ -97,7 +97,7 @@
             </div>
             <br>
             <div class="container" align="center" style="width:800px; margin:0 auto;">
-                <a class="btn" style="background-color:#234d20; color: white; font-size: 12px;" href="{{ url('/search') }}">Enter as GUEST</a>
+                <a class="btn" style="background-color:#234d20; color: white; font-size: 12px;" href="{{ url('/') }}">Enter as GUEST</a>
                 <a class="btn" style="background-color:#234d20; color: white; font-size: 12px;" href="{{ url('/') }}">Go BACK</a>
             </div>
         </div>

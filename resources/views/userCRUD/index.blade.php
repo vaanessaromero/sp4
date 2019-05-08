@@ -10,7 +10,7 @@
         <div class="card">
              <div class="card-header" style="background-color:  #77ab59; color: white; font-size: 20px; padding-left: 20px;">User List
                 <div class="pull-right">
-                    <a class="btn" href="{{ route('userCRUD.create') }}" style="baackground-color: RGB(201, 59, 45); color: white"> Create User</a>
+                    <a class="btn" href="{{ route('userCRUD.create') }}" style="background-color: RGB(201, 59, 45); color: white"> Create User</a>
                 </div>
 
              </div>
@@ -57,6 +57,7 @@
             </tr>
             @endforeach
             </table>
+            <!--  -->
         </div>
 </div>
 </div>

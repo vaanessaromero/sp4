@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Journal;
 use Auth;
 use Illuminate\Support\Facades\Input;
+use Illuminate\Pagination\Paginator;
 
 class SearchController extends Controller
 {
@@ -86,10 +87,10 @@ class SearchController extends Controller
         $user = Auth::user();
         
         if($request->has('search')){  
-         $journals = Journal::search($request->input('search'))->get();
+         $journals = Journal::search($request->input('search'))->paginate(5);
         }
 
-       return view('search.results', compact('journals','user'));
+       return view('search.searchresults', compact('journals','user'));
     }
 
     // public function search_with_constraints(Request $request){

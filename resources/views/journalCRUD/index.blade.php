@@ -24,15 +24,23 @@
         <div class="card">
              <div class="card-header" style="background-color: #234d20; color: white; font-size: 22px; font-weight: 600; letter-spacing: .1rem; text-decoration: none; text-transform: uppercase;;">
                 @auth
-                @if ($user->access_level == 0)
-                    LIBRARY INDEX
-                
-                @else
-                    {{$user->branch}} LIBRARY INDEX
-                @endif
-            @endauth
+                    @if ($user->access_level == 0)
+                        LIBRARY INDEX
+                    
+                    @else
+                        {{$user->branch}} LIBRARY INDEX
+                    @endif
+                @endauth
                 <div class="float-sm-right">
                     <a class="btn" href="{{ route('journalCRUD.create') }}" style="background-color: #77ab59; color: white"> Add Journal</a>
+                    @auth
+                        @if ($user->access_level == 0)
+                            <a class="btn" href="/admin/home" style="background-color: #77ab59; color: white"> Back</a>
+                        @else
+                            <a class="btn" href="{{ route('home') }}" style="background-color: #77ab59; color: white"> Back</a>
+                        @endif
+                    @endauth
+                    
                 </div>
 
              </div>
@@ -62,20 +70,22 @@
                     @if ($user->access_level == 0) 
                         <td class= "color">{{ $journal->title }}</td>
                         <td class= "color">
-                            @if(!empty($authors))
-                                @foreach ($authors as $author)
-                                    {{ $author->last_name }}, {{ $author->first_name }} &
-                                @endforeach
-                            @endif
+                            {{ $journal->author }}
                         </td>
                         <td class= "color">{{ $journal->date }}</td>
                         <!-- <td class= "color">{{ $journal->abstract }}</td> -->
                         <td class= "color">{{ $journal->office }}</td>
                         <td class= "color">
-                            @if(!empty($subjects))
-                                @foreach ($subjects as $subject)
-                                    {{ $subject->field }} &
+                            @if(!empty($journal_subject))
+                                @foreach ($journal_subject as $j_s)
+                                    @if($journal->id == $j_s->journal_id)
+                                        @foreach ($subjects as $s)
+                                            @if($j_s->subject_id == $s->id) {{$s->field}}<br>
+                                            @endif
+                                        @endforeach
+                                    @endif
                                 @endforeach
+                            @else
                             @endif
                         </td>
                         <td align="center"><a class="btn btn-success" target="_blank" rel="noopener noreferrer" href="{{ $journal->pdf_url }}">⟱</a></td>
@@ -91,7 +101,19 @@
                         <td class= "color">{{ $journal->date }}</td>
                         <!-- <td class= "color">{{ $journal->abstract }}</td> -->
                         <td class= "color">{{ $journal->office }}</td>
-                        <td class= "color">{{ $journal->subject_field }}</td>
+                        <td class= "color">
+                            @if(!empty($journal_subject))
+                                @foreach ($journal_subject as $j_s)
+                                    @if($journal->id == $j_s->journal_id)
+                                        @foreach ($subjects as $s)
+                                            @if($j_s->subject_id == $s->id) {{$s->field}}<br>
+                                            @endif
+                                        @endforeach
+                                    @endif
+                                @endforeach
+                            @else
+                            @endif
+                        </td>
                         <td align="center"><a class="btn btn-success" target="_blank" rel="noopener noreferrer" href="{{ $journal->pdf_url }}">⟱</a></td>
                         </td>
                         <td>
@@ -105,8 +127,11 @@
                 
             </tr>
             @endforeach
-            </table>
 
+            </table>
+            <div class="container-fluid">
+                {{ $journals->links('pagination::bootstrap-4') }}
+            </div>
         </div>
 </div>
 </div>

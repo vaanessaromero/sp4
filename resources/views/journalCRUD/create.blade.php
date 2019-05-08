@@ -128,7 +128,7 @@
                 <div class="col-md-9">
                     <div class="form-group">
                         <label style="color: black;">Date Published:</label>
-                        {!! Form::text('date', null, array('Placeholder' => 'YYYY-MM-DD','class' => 'form-control')) !!}
+                        {!! Form::date('date', null, array('Placeholder' => 'YYYY-MM-DD','class' => 'form-control')) !!}
                     </div>
                 </div>
 
@@ -147,22 +147,16 @@
                     </div>
                 </div> -->
                 <div class="col-md-9">
-                    <div class="form-group">
-                        <label style="color: black;">Field/s: </label>
-                            <br><label>{{ Form::checkbox('aquaculture', 'yes', false) }} Aquaculture</label><br>
-                            <label>{{ Form::checkbox('a_business', 'yes', false) }} Agricultural Business</label><br>
-                            <label>{{ Form::checkbox('a_econ', 'yes', false) }} Agricultural Economics</label><br>
-                            <label>{{ Form::checkbox('a_equipment', 'yes', false) }} Agricultural Equipment</label><br>
-                            <label>{{ Form::checkbox('a_mgt', 'yes', false) }} Agricultural Management</label><br>
-                            <label>{{ Form::checkbox('agronomy', 'yes', false) }} Agronomy</label><br>
-                            <label>{{ Form::checkbox('animal_husbandry', 'yes', false) }} Animal Husbandry</label><br>
-                            <label>{{ Form::checkbox('crop_prod', 'yes', false) }} Crop Production</label><br>
-                            <label>{{ Form::checkbox('food_sci', 'yes', false) }} Food Science</label><br>
-                            <label>{{ Form::checkbox('forestry', 'yes', false) }} Forestry</label><br>
-                            <label>{{ Form::checkbox('horticulture', 'yes', false) }} Horticulture</label><br>
-                            <label>{{ Form::checkbox('soil_sci', 'yes', false) }} Soil Science</label><br>
-                            <label>{{ Form::checkbox('vet_sci', 'yes', false) }} Veterinary Science</label>
-                    </div>
+                        <div class="form-group">
+                            <label style="color: black;">Field/s: </label>
+                                
+                                @if(!empty($subjects))
+                                    @foreach ($subjects as $subject)
+                                         <br><label><input type="checkbox" name="subject_checked[]" value="{{ $subject->id }}"> {{$subject->field}}</label>
+                                    @endforeach
+                                @endif
+                                
+                        </div>
                 </div>
 
                 <div class="col-xs-12 col-sm-12 col-md-12 text-center" >
