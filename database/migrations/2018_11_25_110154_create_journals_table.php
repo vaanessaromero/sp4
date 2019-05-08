@@ -17,7 +17,7 @@ class CreateJournalsTable extends Migration
             $table->increments('id');
             $table->string('title');
             $table->string('author');
-            $table->integer('date');
+            $table->string('date');
             $table->text('abstract');
             $table->text('office');
             $table->text('subject_txt');

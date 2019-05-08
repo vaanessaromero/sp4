@@ -354,7 +354,7 @@
                   </ol>
               </div>
  -->
-            <!-- @php
+            @php
               $slider = DB::table('journals')->latest()->limit(3)->get();
             @endphp
             <br><p align="center" style="color: black">NEW JOURNALS!</p>
@@ -394,7 +394,7 @@
                 <span class="carousel-control-next-icon"></span>
               </a>
             </div>
-          </div> -->
+          </div>
           <br>
 
           
