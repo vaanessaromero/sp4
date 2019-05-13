@@ -49,6 +49,9 @@ class Journal extends Model
                 'fields' => [
                     'raw' => [
                         'type' => 'text',
+                        'analyzer'=> 'my_analyzer',
+                        'search_analyzer'=> 'my_stop_analyzer', 
+                        'search_quote_analyzer' => 'my_analyzer',
                     ]
                 ]
             ],
@@ -59,7 +62,10 @@ class Journal extends Model
                 'search_quote_analyzer' => 'my_analyzer',
                 'fields' => [
                     'raw' => [
-                        'type' => 'text'
+                        'type' => 'text',
+                        'analyzer'=> 'my_analyzer',
+                        'search_analyzer'=> 'my_stop_analyzer', 
+                        'search_quote_analyzer' => 'my_analyzer',
                     ]
                 ]
             ],
@@ -94,8 +100,8 @@ class Journal extends Model
             ],
             'subject_txt' => [
                 'type' => 'text',
-                'analyzer'=> 'my_analyzer',
-                'search_analyzer'=> 'my_stop_analyzer', 
+                'analyzer'=> 'keyword',
+                'search_analyzer'=> 'keyword', 
                 'search_quote_analyzer' => 'my_analyzer',
                 'fields' => [
                     'raw' => [

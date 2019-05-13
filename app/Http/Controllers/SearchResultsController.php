@@ -69,9 +69,12 @@ class SearchResultsController extends Controller
     public function searchbyauthor(Request $request){
 
         $user = Auth::user();
+
+
         
         if($request->has('author_search')){  
-         $journals = Journal::search($request->input('author_search'))->whereRegexp('author.raw', $request->input('author_search'))->paginate(5);
+         // $journals = Journal::search('*')->whereRegexp('author', $request->input('author_search'))->paginate(5);
+            $journals = Journal::search($request->input('author_search'))->paginate(5);
         }
 
        return view('search.searchresults', compact('journals','user'));
@@ -95,7 +98,8 @@ class SearchResultsController extends Controller
     public function searchbytitle(Request $request){
 
         if($request->has('title_search')){  
-         $journals = Journal::search('*')->whereRegexp('title.raw', $request->input('title_search'))->paginate(5);
+         // $journals = Journal::search($request->input('title_search'))->whereRegexp('title.raw', $request->input('title_search'))->paginate(5);
+            $journals = Journal::search($request->input('title_search'))->paginate(5);
         }
 
         // $authors = Author::find($a_array);
