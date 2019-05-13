@@ -22,6 +22,7 @@ class CreateJournalsTable extends Migration
             $table->text('office');
             $table->text('subject_txt');
             $table->text('pdf_url');
+            $table->longtext('data');
             $table->timestamps();
         });
     }

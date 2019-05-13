@@ -81,13 +81,15 @@ class SearchResultsController extends Controller
 
         if($request->has('keyword_search')){  
          $journals = Journal::search($request->input('keyword_search'))->paginate(5);
+         $temp  = Journal::search($request->input('keyword_search'))->explain();
         }
 
         // $authors = Author::find($a_array);
+        // echo $temp;
         
         $user = Auth::user();
         
-        return view('search.searchresults',compact('journals','user','authors'));
+        return view('search.searchresults',compact('journals','user','authors','temp'));
     }
 
     public function searchbytitle(Request $request){

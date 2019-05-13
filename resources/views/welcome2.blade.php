@@ -283,7 +283,7 @@
 
         <div class="h_image">
           <div class="h-text">
-            <h1>JOURNALS LIBRARY</h1>
+            <h1>OPEN ACCESS PHILIPPINE JOURNALS LIBRARY</h1>
           </div>
         </div>
 
@@ -314,7 +314,7 @@
                      <input name="subject_search" class="form-control" placeholder="enter subject field">
                  </div>
             </form> -->
-            <br><br><br><a href="/regions" style="color: #234d20;">View by region</a><br>
+            <br><br><br><a href="/regions" style="color: #234d20;">View by region that uploaded</a><br>
             <br><a href="/subjects" style="color: #234d20;">View by subject field</a><br>
             <br><a href="/searchresults" style="color: #234d20;">View all journals by title</a><br><br>
         </div>
@@ -357,7 +357,7 @@
             @php
               $slider = DB::table('journals')->latest()->limit(3)->get();
             @endphp
-            <br><p align="center" style="color: black">NEW JOURNALS!</p>
+            <br><p align="center" style="color: black">LATEST PUBLICATIONS</p>
             <div id="demo" class="carousel slide" data-ride="carousel">
               <ul class="carousel-indicators">
                 <li data-target="#demo" data-slide-to="0" class="active"></li>
@@ -368,22 +368,22 @@
                 <div class="carousel-item active">
                   <img src="https://res.cloudinary.com/dzhe5doam/image/upload/v1557211013/Essential-Books.jpg" alt="one" style="width:1100px; height:300px;">
                   <div class="carousel-caption">
-                    <h3>{{$slider[0]->title}}</h3>
-                    <p>by {{$slider[0]->author}}</p>
+                    <a href="{{ url($slider[0]->pdf_url) }}"><h3 style="font-weight:bold; text-shadow: #000000 1px 0 10px; color:white;">{{$slider[0]->title}}</h3></a>
+                    <p style="color:white;">by {{$slider[0]->author}}</p>
                   </div>   
                 </div>
                 <div class="carousel-item">
                   <img src="https://res.cloudinary.com/dzhe5doam/image/upload/v1557211013/methode_times_prod_web_bin_7b776858-57aa-11e9-b872-7488e2315159.jpg" alt="two" style="width:1100px; height:300px;">
                   <div class="carousel-caption">
-                    <h3>{{$slider[1]->title}}</h3>
-                    <p>by {{$slider[1]->author}}</p>
+                    <a href="{{ url($slider[1]->pdf_url) }}"><h3 style="font-weight:bold; text-shadow: #000000 1px 0 10px; color:white;">{{$slider[1]->title}}</h3></a>
+                    <p style="color:white;">by {{$slider[1]->author}}</p>
                   </div>   
                 </div>
                 <div class="carousel-item">
                   <img src="https://res.cloudinary.com/dzhe5doam/image/upload/v1557211015/IF-AD605_BOOKS__P_20180706170753.jpg" alt="three" style="width:1100px; height:300px;">
                   <div class="carousel-caption">
-                    <h3>{{$slider[2]->title}}</h3>
-                    <p>by {{$slider[2]->author}}</p>
+                    <a href="{{ url($slider[2]->pdf_url) }}"><h3 style="font-weight:bold; text-shadow: #000000 1px 0 10px; color:white;">{{$slider[2]->title}}</h3></a>
+                    <p style="color:white;">by {{$slider[2]->author}}</p>
                   </div>   
                 </div>
               </div>
@@ -402,9 +402,12 @@
         </div>
 
         <div class="container-fluid" id="cont_top" align="center">
-            <center><img style="width: 120px; float: center; margin-top: 15px;" src="{{ asset('https://res.cloudinary.com/dzhe5doam/image/upload/v1557200953/search_2_logo_white.png') }}"></center>
-            <br><p style="color: white">EXACTLY SEARCH FOR</p><br>
-            <form id="elasticScout" action="/searchresults" method="get">
+            <center><img style="width: 70px; float: center; margin-top: 15px;" src="{{ asset('https://res.cloudinary.com/dzhe5doam/image/upload/v1557200953/search_2_logo_white.png') }}"></center>
+            <br><p style="color: white">ABOUT US</p><br>
+            <p style="color: white; text-transform: none;">
+              Open Access Philippine Journals Library is an online bibliographic database & repository of academic journals in different disciplines from various resource in the Philippines by Filipino researchers.
+            </p>
+            <!-- <form id="elasticScout" action="/searchresults" method="get">
                 <div class="mysearchbar" style="width: 90%;">
                      <input name="search_e_title" class="form-control" placeholder="Enter title"><br>
                      <input name="search_e_author" class="form-control" placeholder="Enter author/s"><br>
@@ -412,7 +415,7 @@
                      <input name="search_e_date_published" class="form-control" placeholder="Enter publishing date"><br>
                  </div>
                  <button type="submit" class="btn btn-success">Submit</button>
-            </form>
+            </form> -->
             <br>
         </div>
 

@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "20140992c9ee28a273aade904ba62a63",
+    "content-hash": "a5f279affa8b6970d73d5d78ad91b2a3",
     "packages": [
         {
             "name": "appstract/laravel-blade-directives",
@@ -61,16 +61,16 @@
         },
         {
             "name": "appstract/laravel-bootstrap-components",
-            "version": "1.1.0",
+            "version": "1.1.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/appstract/laravel-bootstrap-components.git",
-                "reference": "a7784c0bc090d48822b7a977fc9576a32a43e674"
+                "reference": "ccd0e1a68f685fe30bb2efc8effab4ba2864909f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/appstract/laravel-bootstrap-components/zipball/a7784c0bc090d48822b7a977fc9576a32a43e674",
-                "reference": "a7784c0bc090d48822b7a977fc9576a32a43e674",
+                "url": "https://api.github.com/repos/appstract/laravel-bootstrap-components/zipball/ccd0e1a68f685fe30bb2efc8effab4ba2864909f",
+                "reference": "ccd0e1a68f685fe30bb2efc8effab4ba2864909f",
                 "shasum": ""
             },
             "require": {
@@ -130,20 +130,20 @@
                 "appstract",
                 "laravel-bootstrap-components"
             ],
-            "time": "2019-01-10T16:48:28+00:00"
+            "time": "2019-05-09T08:43:20+00:00"
         },
         {
             "name": "aws/aws-sdk-php",
-            "version": "3.93.5",
+            "version": "3.93.7",
             "source": {
                 "type": "git",
                 "url": "https://github.com/aws/aws-sdk-php.git",
-                "reference": "e9cfeb39ad6bc7c9ead2a40ce4fc23029ff1e17a"
+                "reference": "41fe205dae433d5cd7a48a4117d37a43a44ed0d2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/e9cfeb39ad6bc7c9ead2a40ce4fc23029ff1e17a",
-                "reference": "e9cfeb39ad6bc7c9ead2a40ce4fc23029ff1e17a",
+                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/41fe205dae433d5cd7a48a4117d37a43a44ed0d2",
+                "reference": "41fe205dae433d5cd7a48a4117d37a43a44ed0d2",
                 "shasum": ""
             },
             "require": {
@@ -213,7 +213,7 @@
                 "s3",
                 "sdk"
             ],
-            "time": "2019-05-07T18:29:58+00:00"
+            "time": "2019-05-10T18:13:26+00:00"
         },
         {
             "name": "babenkoivan/scout-elasticsearch-driver",
@@ -2652,6 +2652,54 @@
             "time": "2019-02-16T20:54:15+00:00"
         },
         {
+            "name": "ottosmops/pdftotext",
+            "version": "v1.0.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/ottosmops/pdftotext.git",
+                "reference": "5a9435254f7b949162f9935d30d471872b25cc59"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/ottosmops/pdftotext/zipball/5a9435254f7b949162f9935d30d471872b25cc59",
+                "reference": "5a9435254f7b949162f9935d30d471872b25cc59",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.6.0",
+                "symfony/process": ">=3.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "~5.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Ottosmops\\Pdftotext\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "ak",
+                    "email": "kraenzle@k-r.ch",
+                    "homepage": "https://wwwk-r.ch"
+                }
+            ],
+            "description": "Extract text from PDF",
+            "homepage": "https://github.com/ottosmops/pdftotext",
+            "keywords": [
+                "anton",
+                "laravel",
+                "ottosmops",
+                "pdftotext"
+            ],
+            "time": "2018-04-21T07:07:46+00:00"
+        },
+        {
             "name": "paragonie/random_compat",
             "version": "v9.99.99",
             "source": {
@@ -3280,6 +3328,103 @@
             "time": "2017-06-14T03:57:53+00:00"
         },
         {
+            "name": "smalot/pdfparser",
+            "version": "v0.14.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/smalot/pdfparser.git",
+                "reference": "ec72a99028ba5e21a0acad92047b85e128cbf81f"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/smalot/pdfparser/zipball/ec72a99028ba5e21a0acad92047b85e128cbf81f",
+                "reference": "ec72a99028ba5e21a0acad92047b85e128cbf81f",
+                "shasum": ""
+            },
+            "require": {
+                "ext-mbstring": "*",
+                "ext-zlib": "*",
+                "php": ">=5.3.0",
+                "tecnickcom/tcpdf": "~6.0"
+            },
+            "require-dev": {
+                "atoum/atoum": "^2.8 | ^3.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Smalot\\PdfParser\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "LGPL-3.0"
+            ],
+            "authors": [
+                {
+                    "name": "Sebastien MALOT",
+                    "email": "sebastien@malot.fr"
+                }
+            ],
+            "description": "Pdf parser library. Can read and extract information from pdf file.",
+            "homepage": "http://www.pdfparser.org",
+            "keywords": [
+                "extract",
+                "parse",
+                "parser",
+                "pdf",
+                "text"
+            ],
+            "time": "2019-01-23T09:14:37+00:00"
+        },
+        {
+            "name": "spatie/pdf-to-text",
+            "version": "1.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/spatie/pdf-to-text.git",
+                "reference": "99197885300b9ee214632f8a7f83f45e87561309"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/spatie/pdf-to-text/zipball/99197885300b9ee214632f8a7f83f45e87561309",
+                "reference": "99197885300b9ee214632f8a7f83f45e87561309",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^7.0",
+                "symfony/process": "^3.3|^4.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^6.4|^7.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Spatie\\PdfToText\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Freek Van der Herten",
+                    "email": "freek@spatie.be",
+                    "homepage": "https://spatie.be",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Extract text from a pdf",
+            "homepage": "https://github.com/spatie/pdf-to-text",
+            "keywords": [
+                "pdf-to-text",
+                "spatie"
+            ],
+            "time": "2018-03-07T21:31:19+00:00"
+        },
+        {
             "name": "superbalist/flysystem-google-storage",
             "version": "7.2.1",
             "source": {
@@ -3462,16 +3607,16 @@
         },
         {
             "name": "symfony/contracts",
-            "version": "v1.0.2",
+            "version": "v1.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/contracts.git",
-                "reference": "1aa7ab2429c3d594dd70689604b5cf7421254cdf"
+                "reference": "d3636025e8253c6144358ec0a62773cae588395b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/contracts/zipball/1aa7ab2429c3d594dd70689604b5cf7421254cdf",
-                "reference": "1aa7ab2429c3d594dd70689604b5cf7421254cdf",
+                "url": "https://api.github.com/repos/symfony/contracts/zipball/d3636025e8253c6144358ec0a62773cae588395b",
+                "reference": "d3636025e8253c6144358ec0a62773cae588395b",
                 "shasum": ""
             },
             "require": {
@@ -3479,19 +3624,22 @@
             },
             "require-dev": {
                 "psr/cache": "^1.0",
-                "psr/container": "^1.0"
+                "psr/container": "^1.0",
+                "symfony/polyfill-intl-idn": "^1.10"
             },
             "suggest": {
                 "psr/cache": "When using the Cache contracts",
                 "psr/container": "When using the Service contracts",
                 "symfony/cache-contracts-implementation": "",
+                "symfony/event-dispatcher-implementation": "",
+                "symfony/http-client-contracts-implementation": "",
                 "symfony/service-contracts-implementation": "",
                 "symfony/translation-contracts-implementation": ""
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.0-dev"
+                    "dev-master": "1.1-dev"
                 }
             },
             "autoload": {
@@ -3526,7 +3674,7 @@
                 "interoperability",
                 "standards"
             ],
-            "time": "2018-12-05T08:06:11+00:00"
+            "time": "2019-04-27T14:29:50+00:00"
         },
         {
             "name": "symfony/css-selector",
@@ -4461,6 +4609,68 @@
                 "dump"
             ],
             "time": "2019-05-01T12:55:36+00:00"
+        },
+        {
+            "name": "tecnickcom/tcpdf",
+            "version": "6.2.26",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/tecnickcom/TCPDF.git",
+                "reference": "367241059ca166e3a76490f4448c284e0a161f15"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/tecnickcom/TCPDF/zipball/367241059ca166e3a76490f4448c284e0a161f15",
+                "reference": "367241059ca166e3a76490f4448c284e0a161f15",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.0"
+            },
+            "type": "library",
+            "autoload": {
+                "classmap": [
+                    "config",
+                    "include",
+                    "tcpdf.php",
+                    "tcpdf_parser.php",
+                    "tcpdf_import.php",
+                    "tcpdf_barcodes_1d.php",
+                    "tcpdf_barcodes_2d.php",
+                    "include/tcpdf_colors.php",
+                    "include/tcpdf_filters.php",
+                    "include/tcpdf_font_data.php",
+                    "include/tcpdf_fonts.php",
+                    "include/tcpdf_images.php",
+                    "include/tcpdf_static.php",
+                    "include/barcodes/datamatrix.php",
+                    "include/barcodes/pdf417.php",
+                    "include/barcodes/qrcode.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "LGPL-3.0"
+            ],
+            "authors": [
+                {
+                    "name": "Nicola Asuni",
+                    "email": "info@tecnick.com",
+                    "role": "lead"
+                }
+            ],
+            "description": "TCPDF is a PHP class for generating PDF documents and barcodes.",
+            "homepage": "http://www.tcpdf.org/",
+            "keywords": [
+                "PDFD32000-2008",
+                "TCPDF",
+                "barcodes",
+                "datamatrix",
+                "pdf",
+                "pdf417",
+                "qrcode"
+            ],
+            "time": "2018-10-16T17:24:05+00:00"
         },
         {
             "name": "tijsverkoyen/css-to-inline-styles",
@@ -5525,16 +5735,16 @@
         },
         {
             "name": "phpunit/phpunit",
-            "version": "7.5.9",
+            "version": "7.5.10",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/phpunit.git",
-                "reference": "134669cf0eeac3f79bc7f0c793efbc158bffc160"
+                "reference": "d7d9cee051d03ed98df6023aad93f7902731a780"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/134669cf0eeac3f79bc7f0c793efbc158bffc160",
-                "reference": "134669cf0eeac3f79bc7f0c793efbc158bffc160",
+                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/d7d9cee051d03ed98df6023aad93f7902731a780",
+                "reference": "d7d9cee051d03ed98df6023aad93f7902731a780",
                 "shasum": ""
             },
             "require": {
@@ -5605,7 +5815,7 @@
                 "testing",
                 "xunit"
             ],
-            "time": "2019-04-19T15:50:46+00:00"
+            "time": "2019-05-09T05:06:47+00:00"
         },
         {
             "name": "sebastian/code-unit-reverse-lookup",

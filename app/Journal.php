@@ -22,7 +22,7 @@ class Journal extends Model
         // MySearchRule::class
     ];
 
-    protected $fillable = ['title', 'author', 'date','abstract', 'office','subject_txt', 'pdf_url'];
+    protected $fillable = ['title', 'author', 'date','abstract', 'office','subject_txt', 'pdf_url', 'data'];
 
     /**
      * @var array
@@ -42,15 +42,21 @@ class Journal extends Model
             ],
             'title' => [
                 'type' => 'text',
+                'analyzer'=> 'my_analyzer',
+                'search_analyzer'=> 'my_stop_analyzer', 
+                'search_quote_analyzer' => 'my_analyzer',
                 'fielddata' => true,
                 'fields' => [
                     'raw' => [
-                        'type' => 'text'
+                        'type' => 'text',
                     ]
                 ]
             ],
             'author' => [
                 'type' => 'text',
+                'analyzer'=> 'my_analyzer',
+                'search_analyzer'=> 'my_stop_analyzer', 
+                'search_quote_analyzer' => 'my_analyzer',
                 'fields' => [
                     'raw' => [
                         'type' => 'text'
@@ -67,11 +73,16 @@ class Journal extends Model
             ],
             'abstract' => [
                 'type' => 'text',
+                'term_vector' => 'with_positions_offsets_payloads',
+                'store' => 'true',
+                'analyzer'=> 'my_analyzer',
+                'search_analyzer'=> 'my_stop_analyzer', 
+                'search_quote_analyzer' => 'my_analyzer',
                 'fields' => [
                     'raw' => [
-                        'type' => 'text'
+                        'type' => 'text',
                     ]
-                ]
+                ],
             ],
             'office' => [
                 'type' => 'text',
@@ -83,6 +94,9 @@ class Journal extends Model
             ],
             'subject_txt' => [
                 'type' => 'text',
+                'analyzer'=> 'my_analyzer',
+                'search_analyzer'=> 'my_stop_analyzer', 
+                'search_quote_analyzer' => 'my_analyzer',
                 'fields' => [
                     'raw' => [
                         'type' => 'text'
@@ -96,6 +110,19 @@ class Journal extends Model
                         'type' => 'text'
                     ]
                 ]
+            ],
+            'data' => [
+                'type' => 'text',
+                'term_vector' => 'with_positions_offsets_payloads',
+                'store' => 'true',
+                'analyzer'=> 'my_analyzer',
+                'search_analyzer'=> 'my_stop_analyzer', 
+                'search_quote_analyzer' => 'my_analyzer',
+                'fields' => [
+                    'raw' => [
+                        'type' => 'text',
+                    ],
+                ],
             ],
         ]
     ];

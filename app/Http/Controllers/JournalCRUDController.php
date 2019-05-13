@@ -11,6 +11,7 @@ use Illuminate\Pagination\Paginator;
 use Auth;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\DB;
+use Smalot\PdfParser\Parser;
 
 class JournalCRUDController extends Controller
 {
@@ -39,7 +40,7 @@ class JournalCRUDController extends Controller
     public function create()
     {     
         $journal = Journal::get();
-        $subjects = Subject::orderBy('field','asc')->paginate(10);
+        $subjects = Subject::orderBy('field','asc')->get();
 
         return view('journalCRUD.create',compact('journal','subjects'));
     }
@@ -65,16 +66,31 @@ class JournalCRUDController extends Controller
             $temp_string =$temp_string.$temp->field." ";
         }
 
+        // $b64Doc = base64_encode(file_get_contents($request->pdf_url));
+        $text = "";
+        $PDFParser = new Parser();
+        $pdf = $PDFParser->parseFile($request->pdf_url);
+        $text = $pdf->getText();
+        // $text = (new Pdf())->setPdf($request->pdf_url)->text();
+
+        // $text = \Ottosmops\Pdftotext\Extract::getText('app/public/uploads/01.pdf');
+
+        // $text = file_get_contents($request->pdf_url, true);
+
+        // $parser = new \Smalot\PdfParser\Parser();
+        // $pdf    = $parser->parseFile($request->pdf_url);
+        // $text   = $pdf->getDetails();
+
         $this->validate($request, [
         	'title' => 'required|max:255',
-            'date' => 'required',
-            'abstract' => 'max:2000',
+            'author' => 'required',
             'pdf_url' => 'required',
         ]);
 
         $request->merge([
             'subject_txt' => $temp_string,
             'office' => $user->branch,
+            'data' =>$text,
         ]);
 
         Journal::create($request->all());
@@ -104,7 +120,7 @@ class JournalCRUDController extends Controller
     public function edit($id)
     {
         $journal = Journal::find($id);
-        $subjects = Subject::get();
+        $subjects = Subject::orderBy('field','asc')->get();
         return view('journalCRUD.edit',compact('journal','subjects'));
     }
 
