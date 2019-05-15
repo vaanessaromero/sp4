@@ -33,6 +33,7 @@
 							<a href="{{ url('userCRUD') }}"><i class="fa fa fa-list-alt"></i> <span class="nav-label">Manage Users</span></a>
 							<a href="{{ url('journalCRUD') }}"><i class="fa fa fa-list-alt"></i> <span class="nav-label">Manage Journals</span></a>
 							<a href="{{ url('subjectCRUD') }}"><i class="fa fa fa-list-alt"></i> <span class="nav-label">Manage Subject Fields</span></a>
+							<a href="/"><i class="fa fa fa-list-alt"></i> <span class="nav-label">Search</span></a>
 						 </li>
 						 <li class="">
 							<a href="#"><i class="fa fa fa-gears"></i> <span class="nav-label">Settings</span><span class="fa arrow"></span></a>

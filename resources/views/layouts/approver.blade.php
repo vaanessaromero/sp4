@@ -36,7 +36,7 @@
 							<a href="{{ url('subjectCRUD') }}"><i class="fa fa fa-list-alt"></i> <span class="nav-label">Manage Subject Fields</span></a>
 						 </li>
 						 <li class="">
-							<a href="{{ url('search') }}"><i class="fa fa fa-list-alt"></i> <span class="nav-label">Search</span></a>
+							<a href="/"><i class="fa fa fa-list-alt"></i> <span class="nav-label">Search</span></a>
 						 </li>
 		
 						 <li class="">

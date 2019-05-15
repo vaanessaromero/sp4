@@ -22,20 +22,6 @@ class AdminLoginController extends Controller
     public function showLoginForm(){
         return view('auth.admin-login');
     }
-    // protected function guard(){
-    //     return Auth::guard('admin');
-    // }
-
-    // public function login(Request $request)
-    // {
-    //     echo '<script>console.log("bobobo")</script>';
-        
-    //     if (Auth::guard('admin')->attempt(['username' => $request->username, 'password' => $request->password]))
-    //     {
-    //        return view('admin-home');
-    //     }
-    //     return back()->withErrors(['username' => 'Email or password are wrong.']);
-    // }
 
     public function login(Request $request){
         //return true;
@@ -46,13 +32,6 @@ class AdminLoginController extends Controller
             'password' => 'required|min:6'
         ]);
 
-        //attempt to login user
-
-        // if( Auth::check() && Auth::user()->isAdmin()){
-        //     return $next($request);
-        // }
-
-        // return redirect('home');
 
         if (Auth::guard('admin')->attempt(['email' => $email, 'password' => $password], $remember)) {
             return redirect()->intended(route('admin.dashboard'));

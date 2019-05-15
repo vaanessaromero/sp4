@@ -136,7 +136,7 @@
                 <div class="col-md-9">
                     <div class="form-group">
                         <label style="color: black;">Abstract:</label>
-                        {!! Form::text('abstract', null, array('Placeholder' => 'Abstract [can be empty]','class' => 'form-control')) !!}
+                        {!! Form::text('abstract', null, array('Placeholder' => 'Abstract','class' => 'form-control')) !!}
                     </div>
                 </div>
 

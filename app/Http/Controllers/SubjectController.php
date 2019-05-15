@@ -109,7 +109,7 @@ class SubjectController extends Controller
 
     public function viewAll(Request $request)
     {
-        $subjects = Subject::orderBy('field','asc')->paginate(10);
+        $subjects = Subject::orderBy('field','asc')->get();
         $user = Auth::user();
         return view('search.subjects',compact('subjects','user'));
     }

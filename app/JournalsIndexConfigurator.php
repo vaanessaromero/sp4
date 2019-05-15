@@ -34,7 +34,7 @@ class JournalsIndexConfigurator extends IndexConfigurator
                       'type_as_payload',
                       'english_stop',
                       'my_stemmer',
-                      'custom_stop'
+                      
                    ]
                 ],
                 'my_stop_analyzer' => [ 

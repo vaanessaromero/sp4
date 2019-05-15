@@ -37,35 +37,4 @@ class LoginController extends Controller
     {
         $this->middleware('guest')->except('logout');
     }
-
-    // public function showLoginForm()
-    // {
-    //     return view('auth.login');
-    // }
-
-    // public function login(Request $request)
-    // {
-    //     echo '<script>console.log("bobobo ka padin")</script>';
-        
-    //     // if (Auth::guard('admin')->attempt(['username' => $request->username, 'password' => $request->password]))
-    //     // {
-    //     //    return view('home');
-    //     // }
-    //     // return back()->withErrors(['username' => 'Email or password are wrong.']);
-
-    //         // $email = $request->username;
-    //         // $password = $request->password;
-    //         // // Get user data
-
-    //         // $user = \App\User::where('username', $username)
-    //         //         ->where('password', $password)
-    //         //         ->select('id', 'username', 'password')
-    //         //         ->get();
-    //         // // Check
-    //         // if (!empty($user[0])) {
-    //         //     // logged in
-    //         // } else {
-    //         //     // Eorror
-    //         // }
-    // }
 }

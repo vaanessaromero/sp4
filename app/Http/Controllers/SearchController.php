@@ -87,7 +87,7 @@ class SearchController extends Controller
         $user = Auth::user();
         
         if($request->has('search')){  
-         $journals = Journal::search($request->input('search'))->paginate(5);
+         $journals = Journal::search($request->input('search'))->get();
         }
 
        return view('search.searchresults', compact('journals','user'));

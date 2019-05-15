@@ -102,7 +102,7 @@ class Journal extends Model
                 'type' => 'text',
                 'analyzer'=> 'keyword',
                 'search_analyzer'=> 'keyword', 
-                'search_quote_analyzer' => 'my_analyzer',
+                'search_quote_analyzer' => 'keyword',
                 'fields' => [
                     'raw' => [
                         'type' => 'text'

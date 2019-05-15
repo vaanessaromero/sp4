@@ -34,9 +34,7 @@
     	    <br><br>
     	</div>
         @endforeach
-        <div class="container-fluid" style="float:right;">
-            {{ $journals->links('pagination::bootstrap-4') }}
-        </div>
+
     @else
     	<p align="center" style="color: black;">no results found</p>
     @endif

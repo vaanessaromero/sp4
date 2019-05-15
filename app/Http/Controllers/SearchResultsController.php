@@ -24,7 +24,7 @@ class SearchResultsController extends Controller
         $user = Auth::user();
         
         if($request->has('search')){  
-         $journals = Journal::search($request->input('search'))->get();
+         $journals = Journal::search($request->input('search'))->orderBy('id', 'desc')->get();
         }
 
        return view('search.results', compact('journals','user'));
@@ -45,7 +45,7 @@ class SearchResultsController extends Controller
         // foreach($jss as $js=>$j){
         //     $journals = Journal::search('*')->where('id',$j->journal_id)->first();
         // }
-        $journals = Journal::search($field)->paginate(5);
+        $journals = Journal::search($field)->orderBy('id', 'desc')->get();
 
         return view('search.searchresults',compact('journals','user'));
     }
@@ -53,7 +53,7 @@ class SearchResultsController extends Controller
     public function all_region_result(Request $request,$region){
         $user = Auth::user();
 
-        $journals = Journal::search($region)->paginate(5);
+        $journals = Journal::search($region)->orderBy('id', 'desc')->get();
 
         return view('search.searchresults',compact('journals','user'));
     }
@@ -74,7 +74,7 @@ class SearchResultsController extends Controller
         
         if($request->has('author_search')){  
          // $journals = Journal::search('*')->whereRegexp('author', $request->input('author_search'))->paginate(5);
-            $journals = Journal::search($request->input('author_search'))->paginate(5);
+            $journals = Journal::search($request->input('author_search'))->orderBy('id', 'desc')->get();
         }
 
        return view('search.searchresults', compact('journals','user'));
@@ -83,8 +83,8 @@ class SearchResultsController extends Controller
     public function searchbykeyword(Request $request){
 
         if($request->has('keyword_search')){  
-         $journals = Journal::search($request->input('keyword_search'))->paginate(5);
-         $temp  = Journal::search($request->input('keyword_search'))->explain();
+         $journals = Journal::search($request->input('keyword_search'))->get();
+         $temp  = Journal::search($request->input('keyword_search'))->orderBy('id', 'desc')->explain();
         }
 
         // $authors = Author::find($a_array);
@@ -99,7 +99,7 @@ class SearchResultsController extends Controller
 
         if($request->has('title_search')){  
          // $journals = Journal::search($request->input('title_search'))->whereRegexp('title.raw', $request->input('title_search'))->paginate(5);
-            $journals = Journal::search($request->input('title_search'))->paginate(5);
+            $journals = Journal::search($request->input('title_search'))->orderBy('id', 'desc')->get();
         }
 
         // $authors = Author::find($a_array);
@@ -111,7 +111,7 @@ class SearchResultsController extends Controller
 
     public function searchbysubject(Request $request){
 
-        $journals = Journal::search($request->input('subject_search'))->whereRegexp('subject.raw', $request->input('subject_search'))->paginate(5);
+        $journals = Journal::search($request->input('subject_search'))->whereRegexp('subject.raw', $request->input('subject_search'))->orderBy('id', 'desc')->get();
         
         $user = Auth::user();
         

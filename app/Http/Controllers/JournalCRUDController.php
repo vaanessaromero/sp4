@@ -66,25 +66,23 @@ class JournalCRUDController extends Controller
             $temp_string =$temp_string.$temp->field." ";
         }
 
-        // $b64Doc = base64_encode(file_get_contents($request->pdf_url));
         $text = "";
-        $PDFParser = new Parser();
-        $pdf = $PDFParser->parseFile($request->pdf_url);
-        $text = $pdf->getText();
-        // $text = (new Pdf())->setPdf($request->pdf_url)->text();
-
-        // $text = \Ottosmops\Pdftotext\Extract::getText('app/public/uploads/01.pdf');
-
-        // $text = file_get_contents($request->pdf_url, true);
-
-        // $parser = new \Smalot\PdfParser\Parser();
-        // $pdf    = $parser->parseFile($request->pdf_url);
-        // $text   = $pdf->getDetails();
+        
+        if(file_exists($request->pdf_url)){
+            $PDFParser = new Parser();
+            $pdf = $PDFParser->parseFile($request->pdf_url);
+            $text = $pdf->getText();
+        }
+        else{
+            $text = "FILE DOES NOT EXIST!";
+        }
 
         $this->validate($request, [
         	'title' => 'required|max:255',
             'author' => 'required',
             'pdf_url' => 'required',
+            'date' => 'required',
+            'abstract' => 'required',
         ]);
 
         $request->merge([
